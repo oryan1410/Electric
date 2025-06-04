@@ -117,7 +117,7 @@ function App() {
 </li> */}
               </ul>
               <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>שירותים:</Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, margin: '0 auto', justifyContent: 'center' }}>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
                 {services.map((service) => (
                   <Grid size={{ xs: 12, md: 6, lg: 4 }} key={service.title}>
                     <Paper elevation={0} sx={{
@@ -142,19 +142,20 @@ function App() {
             </Grid>
             {/* Services Grid */}
                           <Typography variant="h4" sx={{ fontWeight: 700,mb:0, color: '#1a2636' }}>תעשיות:</Typography>
-            <Grid container spacing={2} sx={{ flexDirection: 'column' }}>
+
+            <Grid container spacing={2} sx={{ flexDirection: 'row', width: '100%', mt: 2, justifyContent: 'center' }}>
               {industries.map((ind) => (
-                <Grid item key={ind.label} sx={{
+                <Grid size={{xs:6,md:4}} key={ind.label} sx={{
                   fontWeight: 600,
                   fontSize: '1.1rem',
                   borderRadius: 2,
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 1.5,
                   p: 2,
                   color: '#1a2636',
                   borderColor: '#b0bec5',
                   background: '#f3f6fa',
+                  justifyContent: 'center',
                   '&:hover': { background: '#e0e7ef', borderColor: '#19747e' }
                 }}>
                   {ind.icon && ind.icon}
