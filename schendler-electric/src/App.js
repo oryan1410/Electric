@@ -115,7 +115,7 @@ function App() {
               <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>שירותים:</Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
                 {services.map((service) => (
-                  <Grid size={{ xs: 12, md: 6, lg: 4 }} key={service.title}>
+                  <Grid size={{ xs: 12,sm: 6, lg: 4 }} key={service.title}>
                     <Paper elevation={0} sx={{
                       p: 3,
                       borderRadius: 3,
@@ -125,6 +125,7 @@ function App() {
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
+                      textAlign: 'center',
                       justifyContent: 'center',
                       boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)',
                     }}>
