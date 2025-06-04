@@ -1,211 +1,212 @@
 import React from 'react';
 import ResponsiveAppBar from './Components/ResponsiveAppBar.jsx';
-import { Box, Button, Container, Grid, Typography, Paper, TextField, IconButton } from '@mui/material';
-import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import BoltIcon from '@mui/icons-material/Bolt';
-import SecurityIcon from '@mui/icons-material/Security';
-import HomeWorkIcon from '@mui/icons-material/HomeWork';
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import HomeAutomationIcon from '@mui/icons-material/DeviceHub';
+import { Box, Button, Container, Grid, Typography, Paper, TextField, Chip } from '@mui/material';
+import GavelIcon from '@mui/icons-material/Gavel';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
+import DeviceHubIcon from '@mui/icons-material/DeviceHub';
 import FactoryIcon from '@mui/icons-material/Factory';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import logo from './Images/logo.avif';
 import './App.css';
 
 const services = [
   {
-    icon: <ElectricalServicesIcon fontSize="large" color="primary" />, 
-    title: 'System Design',
-    desc: 'Custom electrical system design for homes, buildings, and industry.'
+    icon: <GavelIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
+    title: 'חוות דעת הנדסיות לבתי משפט ולצדדים בתביעה',
   },
   {
-    icon: <VerifiedUserIcon fontSize="large" color="primary" />, 
-    title: 'Compliance Guidance',
-    desc: 'Expert advice to ensure your projects meet all codes and regulations.'
+    icon: <HandshakeIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
+    title: 'בוררות והכרעה הנדסית בתחום מתקני החשמל',
   },
   {
-    icon: <BoltIcon fontSize="large" color="primary" />, 
-    title: 'Energy Efficiency',
-    desc: 'Planning for optimal energy use and cost savings.'
+    icon: <FactCheckIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
+    title: 'בדיקות מתקני חשמל – על פי תקן ורגולציה',
   },
   {
-    icon: <SecurityIcon fontSize="large" color="primary" />, 
-    title: 'Safety Audits',
-    desc: 'Comprehensive safety checks and risk assessments.'
+    icon: <DeviceHubIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
+    title: 'תכנון חשמל לבתי יוקרה – כולל מערכות בית חכם',
+  },
+  {
+    icon: <FactoryIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
+    title: 'תכנון חשמל למבני תעשייה ומסחר',
+  },
+  {
+    icon: <AccountBalanceIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
+    title: 'תכנון מתקני חשמל במבני ציבור',
   },
 ];
 
 const industries = [
-  { icon: <HomeWorkIcon color="secondary" />, label: 'Residential' },
-  { icon: <ApartmentIcon color="secondary" />, label: 'Commercial' },
-  { icon: <HomeAutomationIcon color="secondary" />, label: 'Smart Homes' },
-  { icon: <FactoryIcon color="secondary" />, label: 'Industrial' },
+  { label: 'Residential' },
+  { label: 'Commercial' },
+  { label: 'Smart Home' },
+  { label: 'Industrial' },
 ];
 
 function App() {
   return (
-    <div className="App" style={{ fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #788AA3 0%, #6e8e8a 100%)', minHeight: '100vh' }}>
+    <Box id={'electricApp'} sx={{ direction: 'rtl', fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', minHeight: '100vh', color: 'white' }}>
       <ResponsiveAppBar />
       {/* Hero Section */}
       <Box sx={{
+        minHeight: { xs: 320, md: 420 },
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         flexDirection: 'column',
-        background: 'linear-gradient(120deg, #232526 0%, #414345 100%)',
-        color: 'white',
-        textAlign: 'center',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        textAlign: 'left',
+        px: { xs: 2, md: 12 },
+        py: { xs: 8, md: 12 },
+        background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)',
         boxShadow: 3,
-        px: 2,
-        py: 8,
-        backgroundImage: `url(${logo})`,
-        boxSizing: 'cover',
+        direction: 'rtl',
+        textAlign: 'right',
       }}>
-        <img src={logo} alt="Schendler Electric Logo" style={{ width: 120, height: 'auto', marginBottom: 20 }} />
-        <Typography variant="h2" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: '2rem', md: '3.5rem' } }}>
-          Powering the Future, Today
+        <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: '2.2rem', md: '3.2rem' }, color: 'white', lineHeight: 1.1 }}>
+          שינדלר אלקטריק בע"מ
         </Typography>
-        <Typography variant="h5" sx={{ mb: 4, opacity: 0.9 }}>
-          Electrical Consulting for Modern Homes, Buildings & Industry
+        <Typography variant="h6" sx={{ mb: 4, color: 'grey.200', maxWidth: 540, fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
+          תכנון, ייעוץ ובדיקות מתקני חשמל
         </Typography>
-        <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 8, boxShadow: 2, fontWeight: 600, px: 4, py: 1.5, fontSize: '1.1rem', transition: 'transform 0.2s', '&:hover': { transform: 'scale(1.05)' } }}>
+        <Typography variant="h6" sx={{ mb: 4, color: 'grey.200', maxWidth: 540, fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
+          ברוכים הבאים לאתר הרשמי של שינדלר אלקטריק בע"מ, בהובלת המהנדס חנוך שינדלר – מומחה מנוסה בתחום הנדסת החשמל עם ניסיון של עשרות שנים.
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 4, color: 'grey.200', maxWidth: 540, fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
+          אנו מציעים שירותים מקצועיים בתחום תכנון, ייעוץ, בדיקות חשמל וחוות דעת הנדסיות. שילוב ייחודי של ידע הנדסי וביצועי המבטיח שירות מקיף, איכותי, אמין ומדויק.
+        </Typography>
+
+        <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 2, fontWeight: 600, px: 4, mg: '0 auto', py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, background: '#2b8bbd', '&:hover': { background: '#176087' } }}>
           Book a Consultation
         </Button>
       </Box>
 
-      {/* About Us */}
-      <Container className='aboutContainer' sx={{ direction: 'rtl'}}>
-        <Paper elevation={3} sx={{ p: { xs: 3, md: 5 }, borderRadius: 4, background: 'transparent', boxShadow: '0 4px 24px 0 rgba(0,0,0,0.07)' }}>
+      {/* About Us + Services Grid Section */}
+      <Box sx={{ width:'100%', background: 'linear-gradient(180deg, #f7fafc 60%, #eaf1f6 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 0, md: 0 } }}>
+        <Container maxWidth="lg">
+          <Grid className={'aboutGrid'} container spacing={6} alignItems="center">
+            {/* About Us Text */}
+            <Grid size={{xs:12}}>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>אודות</Typography>
+              <Typography variant="body1" sx={{ fontSize: '1.15rem', color: '#2d3a4a', mb: 4 }}>
+                חנוך שינדלר – מייסד ומנכ"ל שינדלר אלקטריק בע"מ
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
+                מהנדס חשמל בוגר הטכניון ובעל תואר MBA מאוניברסיטת תל אביב, חבר לשכת המהנדסים ובעל רישיונות חשמלאי מהנדס וחשמלאי בודק סוג 3.
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
+                בעל ניסיון של למעלה מ-30 שנה בתכנון וביצוע עבודות חשמל מורכבות, פיקוח הנדסי, בדיקות, הכנת מכרזים, כתבי כמויות וייעוץ הנדסי למוסדות ממשלתיים ופרטיים.
+              </Typography>
+              <Typography variant="body2" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
+                מופיע במאגר המומחים של בתי המשפט ומשמש כעד מומחה בתיקים משפטיים מורכבים, כולל חקירות נגדיות והופעה על דוכן העדים.
+              </Typography>
+              <br />
+              <Typography variant="h4" sx={{ fontWeight: 700 }} >
+                יתרונות החברה:
+              </Typography>
+              <ul>
+                <li>ניסיון רב-שנים משולב מהתכנון ועד הביצוע</li>
+                <li>ראייה כוללת של צורכי הלקוח</li>
+                <li>שילוב מומחיות טכנית, משפטית וביצועית</li>
+                {/* <li>חוות דעת מומחה</li>
+                <li>בוררות הנדסית</li>
+                <li>בדיקות מתקני חשמל</li>
+                <li>תכנון חשמל לבתי יוקרה עם מערכות בית חכם</li>
+                <li>תכנון חשמל לתעשייה, מסחר וציבור
 
-<h1 style={styles.aboutHeader}>שינדלר אלקטריק בע"מ</h1>
-<p style={styles.aboutSubHeader}>תכנון, ייעוץ ובדיקות מתקני חשמל</p>
-          <Typography variant="body1" sx={{ fontSize: '1.15rem', color: 'text.secondary' }}>
-ברוכים הבאים לאתר הרשמי של שינדלר אלקטריק בע"מ, בהובלת המהנדס חנוך שינדלר – מומחה מנוסה בתחום הנדסת החשמל עם ניסיון של עשרות שנים.
+</li> */}
+              </ul>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>שירותים:</Typography>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, margin: '0 auto', justifyContent: 'center' }}>
+                {services.map((service) => (
+                  <Grid size={{ xs: 12, md: 6, lg: 4 }} key={service.title}>
+                    <Paper elevation={0} sx={{
+                      p: 3,
+                      borderRadius: 3,
+                      background: 'white',
+                      color: '#1a2636',
+                      minHeight: 140,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)',
+                    }}>
+                      {service.icon}
+                      <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 700 }}>{service.title}</Typography>
+                    </Paper>
+                  </Grid>
+                ))}
 
-אנו מציעים שירותים מקצועיים בתחום תכנון, ייעוץ, בדיקות חשמל וחוות דעת הנדסיות. שילוב ייחודי של ידע הנדסי וביצועי המבטיח שירות מקיף, איכותי, אמין ומדויק.
-      <h2>התמחויות עיקריות:</h2>
-<ul>
-  <li>חוות דעת מומחה</li>
-  <li>בוררות הנדסית</li>
-  <li>בדיקות מתקני חשמל</li>
-  <li>תכנון חשמל לבתי יוקרה עם מערכות בית חכם</li>
-  <li>תכנון חשמל לתעשייה, מסחר וציבור</li>
-</ul>
-          </Typography>
-        </Paper>
-      </Container>
-
-      {/* Services Offered */}
-      <Container maxWidth="lg" sx={{ my: 8 }}>
-        <Typography variant="h4" align="center" sx={{ fontWeight: 600, mb: 4, color: 'primary.main' }}>Services Offered</Typography>
-        <Grid container spacing={4} justifyContent="center" alignItems="stretch">
-          {services.map((service, idx) => (
-            <Grid item xs={6} sm={6} md={6} key={service.title} sx={{ display: 'flex' }}>
-              <Paper elevation={4} sx={{
-                p: 3,
-                width: '100%',
-                borderRadius: 4,
-                textAlign: 'center',
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width:'500px',
-                flex: 1,
-                background: 'rgba(255,255,255,0.97)',
-                boxShadow: '0 2px 12px 0 rgba(0,0,0,0.08)',
-                transition: 'box-shadow 0.2s',
-                '&:hover': { boxShadow: '0 6px 24px 0 rgba(0,0,0,0.13)' }
-              }}>
-                {service.icon}
-                <Typography variant="h6" sx={{ mt: 2, fontWeight: 600 }}>{service.title}</Typography>
-                <Typography variant="body2" sx={{ mt: 1, color: 'text.secondary' }}>{service.desc}</Typography>
-              </Paper>
+              </Box>
             </Grid>
-          ))}
-        </Grid>
-      </Container>
-
-      {/* Clients/Industries */}
-      <Container maxWidth="md" sx={{ my: 8 }}>
-        <Typography variant="h4" align="center" sx={{ fontWeight: 600, mb: 4, color: 'primary.main' }}>Industries Served</Typography>
-        <Grid container spacing={3} justifyContent="center">
-          {industries.map((ind) => (
-            <Grid item xs={6} sm={3} key={ind.label}>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 3, textAlign: 'center', background: 'rgba(245,247,250,0.97)' }}>
-                {ind.icon}
-                <Typography variant="subtitle1" sx={{ mt: 1, fontWeight: 500 }}>{ind.label}</Typography>
-              </Paper>
+            {/* Services Grid */}
+                          <Typography variant="h4" sx={{ fontWeight: 700,mb:0, color: '#1a2636' }}>תעשיות:</Typography>
+            <Grid container spacing={2} sx={{ flexDirection: 'column' }}>
+              {industries.map((ind) => (
+                <Grid item key={ind.label} sx={{
+                  fontWeight: 600,
+                  fontSize: '1.1rem',
+                  borderRadius: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  p: 2,
+                  color: '#1a2636',
+                  borderColor: '#b0bec5',
+                  background: '#f3f6fa',
+                  '&:hover': { background: '#e0e7ef', borderColor: '#19747e' }
+                }}>
+                  {ind.icon && ind.icon}
+                  {ind.label}
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-      </Container>
+          </Grid>
+        </Container>
+      </Box>
 
       {/* Call to Action */}
       <Box sx={{
         background: 'linear-gradient(100deg, #1976d2 0%, #21cbf3 100%)',
         color: 'white',
-        py: 7,
+        py: { xs: 6, md: 8 },
         textAlign: 'center',
         boxShadow: 3,
-        mb: 8,
+        mb: { xs: 5, md: 8 },
       }}>
         <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
-          Ready to Power Up Your Project?
+          Ready to Optimize Your Electrical Systems?
         </Typography>
-        <Typography variant="h6" sx={{ mb: 4, opacity: 0.95 }}>
-          Schedule a consultation with our experts today.
-        </Typography>
-        <Button variant="contained" color="secondary" size="large" sx={{ borderRadius: 8, fontWeight: 600, px: 4, py: 1.5, fontSize: '1.1rem', boxShadow: 2, transition: 'transform 0.2s', '&:hover': { transform: 'scale(1.05)' } }}>
-          Book a Consultation
+        <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 2, fontWeight: 600, px: 4, py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, background: '#1a2636', '&:hover': { background: '#19747e' } }}>
+          Schedule a Consultation
         </Button>
       </Box>
 
       {/* Contact Form */}
-      <Container maxWidth="sm" sx={{ mb: 10 }}>
-        <Paper elevation={4} sx={{ p: { xs: 3, md: 5 }, borderRadius: 4, background: 'rgba(255,255,255,0.98)' }}>
-          <Typography variant="h4" sx={{ fontWeight: 600, mb: 2, color: 'primary.main' }}>Contact Us</Typography>
-          <Box component="form" noValidate autoComplete="off" sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <TextField label="Name" variant="outlined" required fullWidth />
-            <TextField label="Email" variant="outlined" required fullWidth type="email" />
-            <TextField label="Message" variant="outlined" required fullWidth multiline rows={4} />
-            <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 6, fontWeight: 600, mt: 1 }}>
-              Send Message
-            </Button>
-          </Box>
-        </Paper>
-      </Container>
-    </div>
+      <Box sx={{ background: 'linear-gradient(180deg, #232f3e 0%, #1a2636 100%)', color: 'white', py: { xs: 6, md: 10 } }}>
+        <Container maxWidth="md">
+          <Grid container spacing={4} alignItems="flex-start">
+            <Grid size={{xs:12,md:6}}>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: 'white' }}>Contact Us</Typography>
+            </Grid>
+            <Grid size={{xs:12,md:6}}>
+              <Paper elevation={4} sx={{ p: { xs: 3, md: 5 }, borderRadius: 4, background: 'rgba(10,35,66,0.98)', color: 'white', boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)' }}>
+                <Box component="form" noValidate autoComplete="off" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <TextField label="Name" variant="outlined" required fullWidth InputLabelProps={{ style: { color: '#fff' } }} inputProps={{ style: { color: '#fff' } }} sx={{ '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: '#19747e' }, '&:hover fieldset': { borderColor: '#21cbf3' } } }} />
+                  <TextField label="Email" variant="outlined" required fullWidth type="email" InputLabelProps={{ style: { color: '#fff' } }} inputProps={{ style: { color: '#fff' } }} sx={{ '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: '#19747e' }, '&:hover fieldset': { borderColor: '#21cbf3' } } }} />
+                  <TextField label="Message" variant="outlined" required fullWidth multiline rows={4} InputLabelProps={{ style: { color: '#fff' } }} inputProps={{ style: { color: '#fff' } }} sx={{ '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: '#19747e' }, '&:hover fieldset': { borderColor: '#21cbf3' } } }} />
+                  <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 2, fontWeight: 600, mt: 1, letterSpacing: 0.5, background: '#19747e', '&:hover': { background: '#21cbf3', color: '#232f3e' } }}>
+                    Send Message
+                  </Button>
+                </Box>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </Box>
   );
 }
 
 export default App;
-
-
-const styles = {
-  aboutHeader: {
-    fontSize: '2.8rem',
-    fontWeight: 'bold',
-    marginBottom: '1rem',
-    color: '#000000',
-  },
-  aboutSubHeader: {
-    fontSize: '1.5rem',
-    marginBottom: '1rem',
-    color: '#000000',
-        fontWeight: 'bold',
-
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '2rem',
-    backgroundColor: '#f5f5f5',
-    borderRadius: '8px',
-    
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-  },
-};
