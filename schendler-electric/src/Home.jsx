@@ -50,7 +50,7 @@ function Home() {
   return (
     <Box id={'electricApp'} sx={{ direction: 'rtl', fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', minHeight: '100vh', color: 'white' }}>
       {/* Hero Section */}
-      <Box sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
+      <Box id="top" sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
         <Container maxWidth="xxl">
           <Grid className={'aboutGrid'} container spacing={6} alignItems="center">
             <Grid size={{ xs: 12 }}>
@@ -77,7 +77,7 @@ function Home() {
       </Box>
 
       {/* About Us + Services Grid Section */}
-      <Box sx={{ background: 'linear-gradient(180deg, #f7fafc 60%, #eaf1f6 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
+      <Box id="about" sx={{ background: 'linear-gradient(180deg, #f7fafc 60%, #eaf1f6 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
         <Container maxWidth="xxl">
           <Grid className={'aboutGrid'} container spacing={6} alignItems="center">
             {/* About Us Text */}
@@ -112,7 +112,7 @@ function Home() {
 </li> */}
               </ul>
               <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>שירותים:</Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+              <Box id="services" sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
                 {services.map((service) => (
                   <Grid size={{ xs: 12,sm: 6, lg: 4 }} key={service.title}>
                     <Paper elevation={0} sx={{
@@ -163,6 +163,14 @@ function Home() {
         </Container>
       </Box>
 
+      {/* Testimonials */}
+      <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
+        <Container maxWidth="md">
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>לקוחות ממליצים</Typography>
+          <Typography>תוכן בקרוב...</Typography>
+        </Container>
+      </Box>
+
       {/* Call to Action */}
       <Box sx={{
         background: 'linear-gradient(100deg, #1976d2 0%, #21cbf3 100%)',
@@ -181,7 +189,7 @@ function Home() {
       </Box>
 
       {/* Contact Form */}
-      <Box sx={{ background: 'linear-gradient(180deg, #232f3e 0%, #1a2636 100%)', color: 'white', py: { xs: 6, md: 10 } }}>
+      <Box id="contact" sx={{ background: 'linear-gradient(180deg, #232f3e 0%, #1a2636 100%)', color: 'white', py: { xs: 6, md: 10 } }}>
         <Container maxWidth="md">
           <Grid container spacing={4} textAlign={'center'} alignContent={'center'} justifyContent={'center'} direction="column">
             <Grid size={{ xs: 12, md: 8 }}>

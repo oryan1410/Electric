@@ -11,18 +11,19 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const pages = [
-  { label: 'אודות', path: '#' },
-  { label: 'שירותים', path: '#' },
-  { label: 'לקוחות ממליצים', path: '#' },
-  { label: 'צור קשר', path: '#' },
+  { label: 'אודות', path: '#about' },
+  { label: 'שירותים', path: '#services' },
+  { label: 'לקוחות ממליצים', path: '#testimonials' },
+  { label: 'צור קשר', path: '#contact' },
   { label: 'Blog', path: '/blog' },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
+  const location = useLocation();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,6 +42,14 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const isBlogPage = location.pathname === '/blog';
+  const resolvePath = (path) => {
+    if (path.startsWith('#')) {
+      return isBlogPage ? `/home${path}` : path;
+    }
+    return path;
+  };
+
   return (
     <AppBar sx={{backgroundColor:'#000000'}} position="static">
       <Container maxWidth="xl">
@@ -48,8 +57,8 @@ function ResponsiveAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/home"
+            component={Link}
+            to={isBlogPage ? '/home' : '#'}
             sx={{
               mr: 2,
               display: { xs: 'none', sm: 'flex' }, // Collapse at 600px instead of 900px
@@ -94,7 +103,7 @@ function ResponsiveAppBar() {
                   key={page.label}
                   onClick={handleCloseNavMenu}
                   component={Link}
-                  to={page.path}
+                  to={resolvePath(page.path)}
                 >
                   <Typography sx={{ textAlign: 'center' }}>{page.label}</Typography>
                 </MenuItem>
@@ -107,7 +116,7 @@ function ResponsiveAppBar() {
                 key={page.label}
                 onClick={handleCloseNavMenu}
                 component={Link}
-                to={page.path}
+                to={resolvePath(page.path)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page.label}
