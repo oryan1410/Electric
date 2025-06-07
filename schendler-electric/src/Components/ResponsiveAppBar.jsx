@@ -42,7 +42,7 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  const isBlogPage = location.pathname === '/blog';
+  const isBlogPage = location.pathname.startsWith('/blog');
   const resolvePath = (path) => {
     if (path.startsWith('#')) {
       return isBlogPage ? `/home${path}` : path;
@@ -51,7 +51,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar sx={{backgroundColor:'#000000'}} position="static">
+    <AppBar sx={{backgroundColor:'#000000', height:"78px"}} position='sticky'>
       <Container maxWidth="xl">
         <Toolbar>
           <Typography

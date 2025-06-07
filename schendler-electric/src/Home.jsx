@@ -96,7 +96,7 @@ function Home() {
                 מופיע במאגר המומחים של בתי המשפט ומשמש כעד מומחה בתיקים משפטיים מורכבים, כולל חקירות נגדיות והופעה על דוכן העדים.
               </Typography>
               <br />
-              <Typography variant="h4" sx={{ fontWeight: 700 }} >
+              <Typography variant="h4" sx={{ fontWeight: 700, pt:2 }} >
                 יתרונות החברה:
               </Typography>
               <ul>
@@ -111,8 +111,9 @@ function Home() {
 
 </li> */}
               </ul>
-              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>שירותים:</Typography>
-              <Box id="services" sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+              <Box  id="services" >
+<Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636', pt:3 }}>שירותים:</Typography>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 2 }}>
                 {services.map((service) => (
                   <Grid size={{ xs: 12,sm: 6, lg: 4 }} key={service.title}>
                     <Paper elevation={0} sx={{
@@ -135,10 +136,11 @@ function Home() {
                 ))}
 
               </Box>
+              </Box>
+              
             </Grid>
             {/* Services Grid */}
             <Typography variant="h4" sx={{ fontWeight: 700, mb: 0, color: '#1a2636' }}>תעשיות:</Typography>
-
             <Grid container spacing={2} sx={{ flexDirection: 'row', width: '100%', mt: 2, justifyContent: 'center' }}>
               {industries.map((ind) => (
                 <Grid size={{ xs: 6, md: 4 }} key={ind.label} sx={{
@@ -210,6 +212,21 @@ function Home() {
           </Grid>
         </Container>
       </Box>
+      {/*Medium profile embedding */}
+      {/* <Box sx={{ background: '#f3f6fa', py: 5, textAlign: 'center' }}>
+        <Container maxWidth="md">
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>Follow Us on Medium</Typography>
+          <iframe
+            src="https://walla.co.il"
+            width="100%"
+            height="600"
+            frameBorder="0"
+            style={{ border: 'none', borderRadius: '8px', overflow: 'hidden' }}
+            title="Medium Profile"
+          ></iframe>
+
+          </Container>
+          </Box> */}
     </Box>
   );
 }

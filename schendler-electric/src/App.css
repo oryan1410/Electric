@@ -27,6 +27,10 @@
 
 }
 
+[id] {
+  scroll-margin-top: 78px; /* Height of your AppBar */
+}
+
 #electricApp {
       font-family: "Miriam Libre", sans-serif;
 
