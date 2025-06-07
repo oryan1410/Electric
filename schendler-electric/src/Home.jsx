@@ -49,7 +49,6 @@ const industries = [
 function Home() {
   return (
     <Box id={'electricApp'} sx={{ direction: 'rtl', fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', minHeight: '100vh', color: 'white' }}>
-      <ResponsiveAppBar />
       {/* Hero Section */}
       <Box sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
         <Container maxWidth="xxl">

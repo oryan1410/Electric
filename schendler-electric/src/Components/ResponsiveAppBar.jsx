@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="Home"
+            href="/home"
             sx={{
               mr: 2,
               display: { xs: 'none', sm: 'flex' }, // Collapse at 600px instead of 900px
