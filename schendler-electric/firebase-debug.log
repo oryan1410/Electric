@@ -1,0 +1,148 @@
+[debug] [2025-06-10T16:13:59.961Z] ----------------------------------------------------------------------
+[debug] [2025-06-10T16:13:59.963Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Yonatan Schindler\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-06-10T16:13:59.964Z] CLI Version:   14.5.1
+[debug] [2025-06-10T16:13:59.964Z] Platform:      win32
+[debug] [2025-06-10T16:13:59.964Z] Node Version:  v22.14.0
+[debug] [2025-06-10T16:13:59.964Z] Time:          Tue Jun 10 2025 09:13:59 GMT-0700 (Pacific Daylight Time)
+[debug] [2025-06-10T16:13:59.964Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-10T16:13:59.966Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-06-10T16:14:00.172Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-10T16:14:00.172Z] > authorizing via signed-in user (yonatanschindler@gmail.com)
+[debug] [2025-06-10T16:14:00.172Z] [iam] checking project electric-5c719 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-06-10T16:14:00.173Z] Checked if tokens are valid: false, expires at: 1749069810925
+[debug] [2025-06-10T16:14:00.173Z] Checked if tokens are valid: false, expires at: 1749069810925
+[debug] [2025-06-10T16:14:00.173Z] > refreshing access token with scopes: []
+[debug] [2025-06-10T16:14:00.174Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-10T16:14:00.174Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-10T16:14:00.448Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-06-10T16:14:00.448Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-10T16:14:00.453Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/electric-5c719:testIamPermissions [none]
+[debug] [2025-06-10T16:14:00.453Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/electric-5c719:testIamPermissions x-goog-quota-user=projects/electric-5c719
+[debug] [2025-06-10T16:14:00.453Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/electric-5c719:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-06-10T16:14:00.651Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-06-10T16:14:00.651Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-06-10T16:14:01.526Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/electric-5c719:testIamPermissions 200
+[debug] [2025-06-10T16:14:01.526Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/electric-5c719:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-06-10T16:14:01.529Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:01.529Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:01.530Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/electric-5c719 [none]
+[debug] [2025-06-10T16:14:01.879Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/electric-5c719 200
+[debug] [2025-06-10T16:14:01.879Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/electric-5c719 {"projectId":"electric-5c719","projectNumber":"771672358886","displayName":"Electric","name":"projects/electric-5c719","resources":{"hostingSite":"electric-5c719"},"state":"ACTIVE","etag":"1_05a0176a-ebf2-4b63-b8ec-0e5539cfde54"}
+[info] 
+[info] === Deploying to 'electric-5c719'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-06-10T16:14:01.888Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:01.888Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:01.888Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions [none]
+[debug] [2025-06-10T16:14:01.888Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-06-10T16:14:03.997Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions 200
+[debug] [2025-06-10T16:14:03.998Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions {"name":"projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[electric-5c719]: beginning deploy... 
+[info] i  hosting[electric-5c719]: found 16 files in build 
+[debug] [2025-06-10T16:14:04.010Z] [hosting] uploading with 200 concurrency
+[debug] [2025-06-10T16:14:04.204Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.204Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.205Z] [hosting] hash cache [YnVpbGQ] stored for 16 files
+[debug] [2025-06-10T16:14:04.205Z] [hosting][hash queue][FINAL] {"max":188,"min":2,"avg":16.5,"active":0,"complete":16,"success":16,"errored":0,"retried":0,"total":16,"elapsed":191}
+[debug] [2025-06-10T16:14:04.205Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478:populateFiles [none]
+[debug] [2025-06-10T16:14:04.205Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478:populateFiles {"files":{"/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/manifest.json":"ee04fb47e525c67d8424ffe9b4d8a8a24e434504478afca4e0ca602146836d4c","/logo512.png":"212b102aa09e51b3b3e06647e81f7801a61333e171f6582e8124379aabccb41d","/logo192.png":"79e2b749561016bc8af300ea19f48347ceed3cb1a54f48ae456172eca45e08f0","/favicon.ico":"27edce7be5922cf0bef7d4136f69b5bfbdd5bf8c13c7b026f71187d41a00aa7d","/404.html":"762bf484ba67404bd1a3b181546ea28d60dfddf18e9dd4795d8d25bcf3c1a890","/asset-manifest.json":"94b6c66cdd017a01423c51ec2bdc0d6410ed6818c85b03a3a5f5f734086811d6","/index.html":"0dfdc8ce6abfce9afcc7791874ffe12f850366252c97ddc322bdc9cc5fd86303","/static/js/main.012a1b8b.js.LICENSE.txt":"77d0593d7f338558dcbed9d02d368b3fd6136e476251515095425606caf185df","/static/js/453.51a24e8c.chunk.js":"0a6612c006460e4b02e2c0e1b032f050bf9e72154423c3f572edff923b556d43","/static/js/453.51a24e8c.chunk.js.map":"12f4c9a05e5769ababdd909415d0ea19b41e4ba860b05eb62bafae3bbb191a9b","/static/css/main.65c7f45c.css.map":"3ae96bdffa7ee9926b9d5e53b7363280e8e67d7088c81621f0f2462ebfe4d48e","/static/css/main.65c7f45c.css":"d2505937d55c7aa96adbac113ca3115679336ddda3216f96c058d5a5fa0a8496","/static/media/logo.500e8f5d63211a7324b9.avif":"156508015066b2f9ae01dd4ca19165151061413b2a48698a27555bdc1048498a","/static/js/main.012a1b8b.js":"3446dc91175215a0b260c74514f280d6c07455c2bc25ea77092c1ea6e01780b1","/static/js/main.012a1b8b.js.map":"8f175ca0aa37b6c57a7195c105255e6178a40c43b954a09abcc4557dfd7e4e4b"}}
+[debug] [2025-06-10T16:14:04.843Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478:populateFiles 200
+[debug] [2025-06-10T16:14:04.843Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478:populateFiles {"uploadRequiredHashes":["77d0593d7f338558dcbed9d02d368b3fd6136e476251515095425606caf185df","8f175ca0aa37b6c57a7195c105255e6178a40c43b954a09abcc4557dfd7e4e4b","3446dc91175215a0b260c74514f280d6c07455c2bc25ea77092c1ea6e01780b1","94b6c66cdd017a01423c51ec2bdc0d6410ed6818c85b03a3a5f5f734086811d6","d2505937d55c7aa96adbac113ca3115679336ddda3216f96c058d5a5fa0a8496","3ae96bdffa7ee9926b9d5e53b7363280e8e67d7088c81621f0f2462ebfe4d48e","0dfdc8ce6abfce9afcc7791874ffe12f850366252c97ddc322bdc9cc5fd86303"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files"}
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.844Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.845Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.845Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.845Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.845Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.845Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.845Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:04.845Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/77d0593d7f338558dcbed9d02d368b3fd6136e476251515095425606caf185df [none]
+[debug] [2025-06-10T16:14:04.845Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/77d0593d7f338558dcbed9d02d368b3fd6136e476251515095425606caf185df [stream]
+[debug] [2025-06-10T16:14:04.846Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/8f175ca0aa37b6c57a7195c105255e6178a40c43b954a09abcc4557dfd7e4e4b [none]
+[debug] [2025-06-10T16:14:04.846Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/8f175ca0aa37b6c57a7195c105255e6178a40c43b954a09abcc4557dfd7e4e4b [stream]
+[debug] [2025-06-10T16:14:04.847Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3446dc91175215a0b260c74514f280d6c07455c2bc25ea77092c1ea6e01780b1 [none]
+[debug] [2025-06-10T16:14:04.847Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3446dc91175215a0b260c74514f280d6c07455c2bc25ea77092c1ea6e01780b1 [stream]
+[debug] [2025-06-10T16:14:04.849Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/94b6c66cdd017a01423c51ec2bdc0d6410ed6818c85b03a3a5f5f734086811d6 [none]
+[debug] [2025-06-10T16:14:04.849Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/94b6c66cdd017a01423c51ec2bdc0d6410ed6818c85b03a3a5f5f734086811d6 [stream]
+[debug] [2025-06-10T16:14:04.849Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/d2505937d55c7aa96adbac113ca3115679336ddda3216f96c058d5a5fa0a8496 [none]
+[debug] [2025-06-10T16:14:04.850Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/d2505937d55c7aa96adbac113ca3115679336ddda3216f96c058d5a5fa0a8496 [stream]
+[debug] [2025-06-10T16:14:04.850Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3ae96bdffa7ee9926b9d5e53b7363280e8e67d7088c81621f0f2462ebfe4d48e [none]
+[debug] [2025-06-10T16:14:04.850Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3ae96bdffa7ee9926b9d5e53b7363280e8e67d7088c81621f0f2462ebfe4d48e [stream]
+[debug] [2025-06-10T16:14:04.851Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/0dfdc8ce6abfce9afcc7791874ffe12f850366252c97ddc322bdc9cc5fd86303 [none]
+[debug] [2025-06-10T16:14:04.851Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/0dfdc8ce6abfce9afcc7791874ffe12f850366252c97ddc322bdc9cc5fd86303 [stream]
+[debug] [2025-06-10T16:14:04.852Z] [hosting][populate queue][FINAL] {"max":641,"min":641,"avg":641,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":648}
+[debug] [2025-06-10T16:14:04.852Z] [hosting] uploads queued: 7
+[debug] [2025-06-10T16:14:06.107Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/94b6c66cdd017a01423c51ec2bdc0d6410ed6818c85b03a3a5f5f734086811d6 200
+[debug] [2025-06-10T16:14:06.107Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/94b6c66cdd017a01423c51ec2bdc0d6410ed6818c85b03a3a5f5f734086811d6 [stream]
+[debug] [2025-06-10T16:14:06.110Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3ae96bdffa7ee9926b9d5e53b7363280e8e67d7088c81621f0f2462ebfe4d48e 200
+[debug] [2025-06-10T16:14:06.110Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3ae96bdffa7ee9926b9d5e53b7363280e8e67d7088c81621f0f2462ebfe4d48e [stream]
+[debug] [2025-06-10T16:14:06.121Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/0dfdc8ce6abfce9afcc7791874ffe12f850366252c97ddc322bdc9cc5fd86303 200
+[debug] [2025-06-10T16:14:06.121Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/0dfdc8ce6abfce9afcc7791874ffe12f850366252c97ddc322bdc9cc5fd86303 [stream]
+[debug] [2025-06-10T16:14:06.168Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3446dc91175215a0b260c74514f280d6c07455c2bc25ea77092c1ea6e01780b1 200
+[debug] [2025-06-10T16:14:06.168Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/3446dc91175215a0b260c74514f280d6c07455c2bc25ea77092c1ea6e01780b1 [stream]
+[debug] [2025-06-10T16:14:06.257Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/77d0593d7f338558dcbed9d02d368b3fd6136e476251515095425606caf185df 200
+[debug] [2025-06-10T16:14:06.258Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/77d0593d7f338558dcbed9d02d368b3fd6136e476251515095425606caf185df [stream]
+[debug] [2025-06-10T16:14:06.388Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/d2505937d55c7aa96adbac113ca3115679336ddda3216f96c058d5a5fa0a8496 200
+[debug] [2025-06-10T16:14:06.388Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/d2505937d55c7aa96adbac113ca3115679336ddda3216f96c058d5a5fa0a8496 [stream]
+[debug] [2025-06-10T16:14:06.561Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/8f175ca0aa37b6c57a7195c105255e6178a40c43b954a09abcc4557dfd7e4e4b 200
+[debug] [2025-06-10T16:14:06.561Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electric-5c719/versions/bbf73e65640f4478/files/8f175ca0aa37b6c57a7195c105255e6178a40c43b954a09abcc4557dfd7e4e4b [stream]
+[debug] [2025-06-10T16:14:06.562Z] [hosting][upload queue][FINAL] {"max":1718,"min":1263,"avg":1400.857142857143,"active":0,"complete":7,"success":7,"errored":0,"retried":0,"total":7,"elapsed":1719}
+[info] +  hosting[electric-5c719]: file upload complete 
+[debug] [2025-06-10T16:14:06.565Z] [hosting] deploy completed after 2565ms
+[debug] [2025-06-10T16:14:06.566Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "electric-5c719"
+    },
+    "version": "projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478"
+  }
+]
+[info] i  hosting[electric-5c719]: finalizing version... 
+[debug] [2025-06-10T16:14:06.572Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:06.572Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:06.573Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions/bbf73e65640f4478 updateMask=status%2Cconfig
+[debug] [2025-06-10T16:14:06.573Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions/bbf73e65640f4478 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2025-06-10T16:14:07.387Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions/bbf73e65640f4478 200
+[debug] [2025-06-10T16:14:07.387Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/versions/bbf73e65640f4478 {"name":"projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-06-10T16:14:03.116881Z","createUser":{"email":"yonatanschindler@gmail.com"},"finalizeTime":"2025-06-10T16:14:07.223198Z","finalizeUser":{"email":"yonatanschindler@gmail.com"}}
+[debug] [2025-06-10T16:14:07.387Z] [hosting] finalized version for electric-5c719:[object Object]
+[info] +  hosting[electric-5c719]: version finalized 
+[info] i  hosting[electric-5c719]: releasing new version... 
+[debug] [2025-06-10T16:14:07.388Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:07.388Z] Checked if tokens are valid: true, expires at: 1749575639448
+[debug] [2025-06-10T16:14:07.388Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/channels/live/releases versionName=projects%2F771672358886%2Fsites%2Felectric-5c719%2Fversions%2Fbbf73e65640f4478
+[debug] [2025-06-10T16:14:07.388Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/channels/live/releases {}
+[debug] [2025-06-10T16:14:08.132Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/channels/live/releases 200
+[debug] [2025-06-10T16:14:08.133Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/electric-5c719/channels/live/releases {"name":"projects/771672358886/sites/electric-5c719/channels/live/releases/1749572047242000","version":{"name":"projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-06-10T16:14:03.116881Z","createUser":{"email":"yonatanschindler@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJwBCIikkTZE0eXEh5Mie6-elrI1PoRTe69ZX6akevRS5W2TQ=mo"},"finalizeTime":"2025-06-10T16:14:07.223198Z","finalizeUser":{"email":"yonatanschindler@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJwBCIikkTZE0eXEh5Mie6-elrI1PoRTe69ZX6akevRS5W2TQ=mo"}},"type":"DEPLOY","releaseTime":"2025-06-10T16:14:07.242Z","releaseUser":{"email":"yonatanschindler@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJwBCIikkTZE0eXEh5Mie6-elrI1PoRTe69ZX6akevRS5W2TQ=mo"}}
+[debug] [2025-06-10T16:14:08.133Z] [hosting] release: {"name":"projects/771672358886/sites/electric-5c719/channels/live/releases/1749572047242000","version":{"name":"projects/771672358886/sites/electric-5c719/versions/bbf73e65640f4478","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-06-10T16:14:03.116881Z","createUser":{"email":"yonatanschindler@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJwBCIikkTZE0eXEh5Mie6-elrI1PoRTe69ZX6akevRS5W2TQ=mo"},"finalizeTime":"2025-06-10T16:14:07.223198Z","finalizeUser":{"email":"yonatanschindler@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJwBCIikkTZE0eXEh5Mie6-elrI1PoRTe69ZX6akevRS5W2TQ=mo"}},"type":"DEPLOY","releaseTime":"2025-06-10T16:14:07.242Z","releaseUser":{"email":"yonatanschindler@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJwBCIikkTZE0eXEh5Mie6-elrI1PoRTe69ZX6akevRS5W2TQ=mo"}}
+[info] +  hosting[electric-5c719]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/electric-5c719/overview
+[info] Hosting URL: https://electric-5c719.web.app
+[debug] [2025-06-10T16:14:18.293Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\Yonatan Schindler\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:267:49)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+[error] 
+[error] Error: An unexpected error has occurred.

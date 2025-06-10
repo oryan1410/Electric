@@ -11,6 +11,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import BusinessIcon from '@mui/icons-material/Business';
 import logo from './Images/logo.avif';
 import './App.css';
+import ImageCarousel from './Components/ImageCarousel.jsx';
 
 const services = [
   {
@@ -115,7 +116,7 @@ function Home() {
 <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636', pt:3 }}>שירותים:</Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 2 }}>
                 {services.map((service) => (
-                  <Grid size={{ xs: 12,sm: 6, lg: 4 }} key={service.title}>
+                  <Grid className={'serviceGridItem'} size={{ xs: 12,sm: 6, lg: 4 }} key={service.title}>
                     <Paper elevation={0} sx={{
                       p: 3,
                       borderRadius: 3,
@@ -173,6 +174,14 @@ function Home() {
         </Container>
       </Box>
 
+      {/* Image Carousel */}
+      <Box id="gallery" sx={{ py: 5, background: '#eaf1f6', color: '#1a2636' }}>
+        <Container maxWidth="xxl">
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>גלריית תמונות</Typography>
+          <ImageCarousel />
+        </Container>
+      </Box>
+
       {/* Call to Action */}
       <Box sx={{
         background: 'linear-gradient(100deg, #1976d2 0%, #21cbf3 100%)',
@@ -180,7 +189,7 @@ function Home() {
         py: { xs: 6, md: 8 },
         textAlign: 'center',
         boxShadow: 3,
-        mb: { xs: 5, md: 8 },
+        
       }}>
         <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
           Ready to Optimize Your Electrical Systems?
@@ -212,21 +221,7 @@ function Home() {
           </Grid>
         </Container>
       </Box>
-      {/*Medium profile embedding */}
-      {/* <Box sx={{ background: '#f3f6fa', py: 5, textAlign: 'center' }}>
-        <Container maxWidth="md">
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>Follow Us on Medium</Typography>
-          <iframe
-            src="https://walla.co.il"
-            width="100%"
-            height="600"
-            frameBorder="0"
-            style={{ border: 'none', borderRadius: '8px', overflow: 'hidden' }}
-            title="Medium Profile"
-          ></iframe>
 
-          </Container>
-          </Box> */}
     </Box>
   );
 }

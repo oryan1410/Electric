@@ -12,6 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useLocation } from 'react-router-dom';
+import '../App.css'; // Assuming you have a CSS file for styles
 
 const pages = [
   { label: 'אודות', path: '#about' },
@@ -26,6 +27,8 @@ function ResponsiveAppBar() {
   const location = useLocation();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -51,9 +54,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar sx={{backgroundColor:'#000000', height:"78px"}} position='sticky'>
-      <Container maxWidth="xl">
-        <Toolbar>
+    <AppBar sx={{backgroundColor:'#000000', height:"78px", maxWidth:'100%'}} position='sticky'>
+      <Container maxWidth="xxl" sx={{ height: '100%' }}>
+        <Toolbar disableGutters sx={{ height: '100%' }}>
           <Typography
             variant="h6"
             noWrap
@@ -61,7 +64,7 @@ function ResponsiveAppBar() {
             to={isBlogPage ? '/home' : '#'}
             sx={{
               mr: 2,
-              display: { xs: 'none', sm: 'flex' }, // Collapse at 600px instead of 900px
+              display: { xs: 'none', md: 'flex' }, // Collapse at 600px instead of 900px
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -71,7 +74,7 @@ function ResponsiveAppBar() {
           >
             <img src='https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png' alt="" />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+          <Box sx={{ height:'100%',flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -79,6 +82,7 @@ function ResponsiveAppBar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{ alignItems: 'center', height: '100%' }}
             >
               <MenuIcon />
             </IconButton>
@@ -92,11 +96,27 @@ function ResponsiveAppBar() {
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
               }}
+              transitionDuration={500}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', sm: 'none' } }}
+              sx={{ display: { xs: 'block', md: 'none' } }}
+              slotProps={{
+                paper: {
+                  sx: {
+                    backgroundColor: '#0a2540', // Custom dark blue
+                    color: '#fff', // White text
+                    borderRadius: 0,
+                    boxShadow: 6,
+                    width: '100%',
+                    minWidth: '100%', // Ensures full width on mobile
+                    left: 0,
+                    right: 0,
+                    padding:'10px',
+                    textAlign:'right'
+                  }
+                },
+              }}
             >
               {pages.map((page) => (
                 <MenuItem
@@ -104,13 +124,14 @@ function ResponsiveAppBar() {
                   onClick={handleCloseNavMenu}
                   component={Link}
                   to={resolvePath(page.path)}
+                  sx={{ justifyContent: 'center', textAlign: 'center', width: '100%' }}
                 >
-                  <Typography sx={{ textAlign: 'center' }}>{page.label}</Typography>
+                  <Typography sx={{ width: '100%', textAlign: 'center', m: 0 }}>{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page.label}
@@ -129,3 +150,9 @@ function ResponsiveAppBar() {
   );
 }
 export default ResponsiveAppBar;
+
+const styles={
+  menu:{
+    backgroundColor:'red'
+  }
+}

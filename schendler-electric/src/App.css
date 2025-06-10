@@ -67,3 +67,40 @@
   flex-direction: column! important;
   width: 100% !important;
 }
+
+.appBar {
+  background-color: #92B6B1;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.swiperImg {
+  transform: scale(1);
+}
+
+.swiper-slide-active.swiperImg{
+  transform: scale(1.05);
+}
+
+.swiperImg:hover{
+    transform: scale(1.05);
+
+}
+
+.serviceGridItem{
+  transform: scale(1);
+}
+
+.serviceGridItem:hover{
+  transform: scale(1.04);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+}

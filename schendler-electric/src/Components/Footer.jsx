@@ -16,7 +16,6 @@ const Footer = () => {
         color: '#ffffff',
         py: 2,
         px: 1,
-        mt: 'auto', // Push footer to the bottom
         alignItems: 'center',
         justifyContent: 'center', // Center all items as a group
         gap: 3, // Even spacing between items
