@@ -6,7 +6,6 @@ function Blog() {
   const [loading, setLoading] = useState(true);
 
   const { texttext } = useUserContext(); // Example usage of UserContext
-  console.log(texttext); // Log the value from UserContext
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3200); // Simulate loading (slower)

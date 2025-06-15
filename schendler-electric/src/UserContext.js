@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react'
 import { db } from './firebase_setup/firebase'
-import { query, getDocs, collection, onSnapshot, addDoc, where, orderBy, or } from 'firebase/firestore'
+import { query, collection, onSnapshot } from 'firebase/firestore'
 
 
 
@@ -12,17 +12,28 @@ export function useUserContext() {
 }
 
 export function UserProvider({ children }) {
-
+    const [carouselImages, setCarouselImages] = useState([])
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const texttext='asdasd'
+    useEffect(() => {
+        const tempUrl = query(collection(db, 'CarouselPics'));
+        const unsubscribe = onSnapshot(tempUrl, (querySnapshot) => {
+            const temp = [];
+            querySnapshot.forEach((doc) => {
+                temp.push(doc.data().imgUrl);
+            });
+            console.log(temp);
+            setCarouselImages(temp);
+        });
+        return () => unsubscribe();
+    }, []);
 
 
     const value = {
-texttext
-    }
-   
+        carouselImages,
+    };
+
     return (
         <UserContext.Provider value={value}>
             {children}

@@ -12,6 +12,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import logo from './Images/logo.avif';
 import './App.css';
 import ImageCarousel from './Components/ImageCarousel.jsx';
+import { useUserContext } from './UserContext';
 
 const services = [
   {
@@ -48,6 +49,8 @@ const industries = [
 ];
 
 function Home() {
+
+  
   return (
     <Box id={'electricApp'} sx={{ direction: 'rtl', fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', minHeight: '100vh', color: 'white' }}>
       {/* Hero Section */}

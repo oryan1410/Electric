@@ -28,7 +28,7 @@ const Footer = () => {
           All right reserved © Schindler Electric
         </Typography>
       </Box>
-      <Box>
+      {/* <Box>
         <Typography variant="body2">
           Designed by{" "}
           <Link
@@ -38,7 +38,7 @@ const Footer = () => {
             Golan Ana-Aref
           </Link>
         </Typography>
-      </Box>
+      </Box> */}
       <Box>
         <Typography variant="body2">
           Developed by{" "}

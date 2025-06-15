@@ -99,6 +99,7 @@ const PostPage = () => {
                     placeholder='הוסף תגובה...'
                     style={styles.textArea}
                     onChange={(e) => console.log(e.target.value)}
+                    
                 />
             </div>
         )
@@ -112,10 +113,9 @@ const styles = {
         padding: '20px',
         margin: '0 auto',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #e0f7fa 0%, #f8fdff 100%)',
-        borderRadius: '18px',
-        boxShadow: '0 6px 32px 0 rgba(0,0,0,0.08)',
-        color: '#1a2a3a',
+        background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)',
+        boxShadow: '0 6px 32px 0 rgba(0,0,0,0.18)',
+        color: '#e0f7fa', // light teal for text
         fontFamily: 'Heebo, Rubik, Arial, sans-serif',
         transition: 'box-shadow 0.3s',
         minHeight: 400
@@ -126,7 +126,7 @@ const styles = {
         fontSize: '1.13rem',
         marginBottom: '20px',
         lineHeight: 1.85,
-        color: '#1a2a3a',
+        color: '#e0f7fa', // light teal for content
         letterSpacing: '0.01em',
         wordBreak: 'break-word',
         padding: '0 2px'
@@ -135,28 +135,28 @@ const styles = {
         fontSize: '2.2rem',
         fontWeight: 800,
         marginBottom: 10,
-        color: '#008080',
+        color: '#fff', 
         letterSpacing: '0.04em',
-        textShadow: '0 2px 12px #b2ebf2'
+        textShadow: '0 2px 12px #0a2342'
     },
     postAuthor: {
         fontSize: '1.05rem',
-        color: '#007c91',
+        color: '#e0f7fa', // light teal for content
         marginBottom: 18,
         fontStyle: 'italic',
-        borderBottom: '1px solid #b2ebf2',
+        borderBottom: '1px solid #19747e',
         paddingBottom: 8
     },
     postHeader: {
         fontSize: '1.35rem',
-        color: '#004d66', // Official, futuristic, professional
+        color: '#fff', 
         fontWeight: 700,
         margin: '0 0 8px 0',
         letterSpacing: '0.01em',
         textTransform: 'uppercase',
-        borderLeft: '4px solid #00bcd4',
+        borderLeft: '4px solid #21cbf3',
         paddingLeft: 12,
-        background: 'rgba(0,188,212,0.07)'
+        background: 'rgba(33,203,243,0.07)'
     },
     postParagraph: {
         margin: 0
@@ -165,34 +165,35 @@ const styles = {
         width: '100%',
         height: 'auto',
         borderRadius: '12px',
-        boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
+        boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
         marginBottom: '20px'
     },
     paraHeader: {
         fontSize: '1.35rem',
-        color: '#004d66', // Official, futuristic, professional
+        color: '#fff', 
         fontWeight: 700,
         margin: '0 0 8px 0',
         letterSpacing: '0.01em',
         textTransform: 'uppercase',
-        borderLeft: '4px solid #00bcd4',
+        borderLeft: '4px solid #21cbf3',
         paddingLeft: 12,
-        background: 'rgba(0,188,212,0.07)',
+        background: 'rgba(33,203,243,0.07)',
         marginBottom: 10
     },
     textArea: {
-        width: '100%',
-        padding: '10px',
+        width: '100%', // Use 100% for full container width
+        boxSizing: 'border-box', // Ensure padding is included in width
         marginTop: '20px',
         borderRadius: '8px',
-        border: '1.5px solid #4dd0e1',
+        border: '1.5px solid #21cbf3',
         minHeight: '60px',
         resize: 'vertical',
-        background: '#e0f7fa',
-        color: '#1a2a3a',
+        background: '#0a2342',
+        color: '#e0f7fa',
         fontFamily: 'inherit',
         fontSize: '1.05rem',
-        boxShadow: '0 2px 8px 0 rgba(44,83,100,0.08)'
+        boxShadow: '0 2px 8px 0 rgba(44,83,100,0.18)',
+        padding: '20px', // Padding inside the textarea
     }
 
 };
