@@ -35,6 +35,13 @@ function Blog() {
       author: 'אבי',
       authorPicUrl: '',
     },
+    {
+      id: 4,
+      title: 'כותרת פוסט ראשון',
+      excerpt: 'תקציר קצר של הפוסט הראשון. כאן יופיעו כמה שורות שמסבירות על התוכן.',
+      author: 'יונתן',
+      authorPicUrl: '',
+    },
   ];
 
   return (
@@ -55,7 +62,7 @@ function Blog() {
             <Box
               sx={{
                 display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 2fr)', xxl: 'repeat(6, 1fr)' },
                 gap: 4,
                 mb: 4,
               }}

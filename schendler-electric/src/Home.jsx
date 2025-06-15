@@ -1,6 +1,6 @@
 import React from 'react';
 import ResponsiveAppBar from './Components/ResponsiveAppBar.jsx';
-import { Box, Button, Container, Grid, Typography, Paper, TextField, Chip } from '@mui/material';
+import { Box, Button, Container, Grid, Typography, Paper, TextField, Chip, Fade } from '@mui/material';
 import GavelIcon from '@mui/icons-material/Gavel';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
@@ -12,66 +12,82 @@ import BusinessIcon from '@mui/icons-material/Business';
 import logo from './Images/logo.avif';
 import './App.css';
 import ImageCarousel from './Components/ImageCarousel.jsx';
+import TestimonailCarousel from './Components/TestimonailCarousel.jsx';
 import { useUserContext } from './UserContext';
+import { useState } from 'react';
 
 const services = [
   {
+    category: 'ייעוץ ותכנון',
+    items: [
+      'תכנון חשמל לפרויקטים יוקרתיים (וילות חכמות ואולפני הקלטות)',
+      'תכנון מערכות בית חכם, אזעקה, גילוי אש ובקרת מבנים',
+      'תכנון מתקנים תעשייתיים ומערכות גיבוי גנרטורים',
+      'מומחיות במפעלי מזון',
+      'עריכת מכרזים, הכנת תוכניות מכרז, מפרטים טכניים, אומדנים וטיוטת חוזה',
+      'ניהול ופיקוח עבודות חשמל ומערכות נלוות',
+    ],
     icon: <GavelIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-    title: 'חוות דעת הנדסיות לבתי משפט ולצדדים בתביעה',
   },
   {
-    icon: <HandshakeIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-    title: 'בוררות והכרעה הנדסית בתחום מתקני החשמל',
-  },
-  {
+    category: 'בדיקות ואישורים',
+    items: [
+      'בדיקות חשמל שוטפות (מתקני חשמל, גנרטורים, ואירועים מיוחדים)',
+      'חוות דעת לאחר שריפה ונזקי חשמל למטרות ביטוח',
+      'אישורים לרישוי עסקים.',
+    ],
     icon: <FactCheckIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-    title: 'בדיקות מתקני חשמל – על פי תקן ורגולציה',
   },
   {
-    icon: <DeviceHubIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-    title: 'תכנון חשמל לבתי יוקרה – כולל מערכות בית חכם',
+    category: 'חוות דעת מומחה',
+    items: [
+      'עדות מומחה בבית המשפט בתביעות חשמל',
+      'חוות דעת מקצועית לחברות ביטוח',
+    ],
+    icon: <HandshakeIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
   },
   {
+    category: 'ביצוע ופיקוח',
+    items: [
+      'ניהול ופיקוח על עבודות חשמל באמצעות קבלני משנה',
+      'פתרון Turn‑Key או הפרדת תכנון וביצוע לפי הצורך',
+    ],
     icon: <FactoryIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-    title: 'תכנון חשמל למבני תעשייה ומסחר',
-  },
-  {
-    icon: <AccountBalanceIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-    title: 'תכנון מתקני חשמל במבני ציבור',
   },
 ];
 
 const industries = [
-  { label: 'Residential', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} /> },
-  { label: 'Commercial', icon: <BusinessIcon sx={{ fontSize: 28, color: 'primary.main' }} /> },
-  { label: 'Smart Home', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} /> },
-  { label: 'Industrial', icon: <FactoryIcon sx={{ fontSize: 28, color: 'primary.main' }} /> },
+  { label: 'וילות יוקרה', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
+  { label: 'אולפן פודקאסט עירוני ', icon: <BusinessIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
+  { label: 'מתכת כרמל ומפעל מאיר בייגל', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} /> , imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
+  { label: 'ממגורות אשדוד', icon: <FactoryIcon sx={{ fontSize: 28, color: 'primary.main' }} /> , imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
+  { label: 'טקס הדלקת המשואות בהר הרצל', icon: <AccountBalanceIcon sx={{ fontSize: 28, color: 'primary.main' }} /> , imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
+  { label: 'מתקני חשמל תעשייתיים', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
 ];
 
 function Home() {
 
-  
+  const [selectedIndustry, setSelectedIndustry] = useState(industries[0]);
+
+
   return (
     <Box id={'electricApp'} sx={{ direction: 'rtl', fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', minHeight: '100vh', color: 'white' }}>
       {/* Hero Section */}
-      <Box id="top" sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
+      <Box id="top" sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 13, md: 13 }, px: { xs: 4, md: 2 } }}>
         <Container maxWidth="xxl">
           <Grid className={'aboutGrid'} container spacing={6} alignItems="center">
-            <Grid size={{ xs: 12 }}>
+            <Grid sx={{ flexDirection: 'column', display: 'flex' }} size={{ xs: 12 }}>
               <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: '2.2rem', md: '3.2rem' }, color: 'white', lineHeight: 1.1 }}>
                 שינדלר אלקטריק בע"מ
               </Typography>
-              <Typography variant="h6" sx={{ mb: 4, color: 'grey.200', maxWidth: 540, fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
-                תכנון, ייעוץ ובדיקות מתקני חשמל
+              <Typography variant="p" sx={{ mb: 0, color: 'grey.200', fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
+                מעל 40 שנות מורשת  משפחתית בתכנון, ייעוץ ובדיקות חשמל
               </Typography>
-              <Typography variant="h6" sx={{ mb: 4, color: 'grey.200', maxWidth: 540, fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
-                ברוכים הבאים לאתר הרשמי של שינדלר אלקטריק בע"מ, בהובלת המהנדס חנוך שינדלר – מומחה מנוסה בתחום הנדסת החשמל עם ניסיון של עשרות שנים.
-              </Typography>
-              <Typography variant="h6" sx={{ mb: 4, color: 'grey.200', maxWidth: 540, fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
-                אנו מציעים שירותים מקצועיים בתחום תכנון, ייעוץ, בדיקות חשמל וחוות דעת הנדסיות. שילוב ייחודי של ידע הנדסי וביצועי המבטיח שירות מקיף, איכותי, אמין ומדויק.
+              <Typography variant="p" sx={{ mb: 2, color: 'grey.200', fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
+                תכנון מדויק • פיקוח מקצועי • חוות דעת מומחה
               </Typography>
 
-              <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 2, fontWeight: 600, px: 4, mg: '0 auto', py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, background: '#2b8bbd', '&:hover': { background: '#176087' } }}>
+              <Button variant="contained" color="primary" size="large" sx={{ maxWidth: 540, borderRadius: 2, fontWeight: 600, px: 4, mg: '0 auto', py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, background: '#2b8bbd', '&:hover': { background: '#176087' } }}>
                 Book a Consultation
               </Button>
             </Grid>
@@ -87,95 +103,111 @@ function Home() {
             {/* About Us Text */}
             <Grid size={{ xs: 12 }}>
               <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>אודות</Typography>
-              <Typography variant="body1" sx={{ fontSize: '1.15rem', color: '#2d3a4a', mb: 4 }}>
-                חנוך שינדלר – מייסד ומנכ"ל שינדלר אלקטריק בע"מ
+              <Typography variant="body1" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
+                חנוך שינדלר, מהנדס חשמל בוגר הטכניון, הבעלים של שינדלר אלקטריק בע"מ, ממשיך מסורת משפחתית בת עשרות שנים. <br />
+                למעלה מ-30 שנות ניסיון בתכנון, ניהול, פיקוח, בדיקות וביצוע של מתקנים תעשייתיים, וילות יוקרה ופרויקטים מורכבים אחרים.
               </Typography>
               <Typography variant="body2" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
-                מהנדס חשמל בוגר הטכניון ובעל תואר MBA מאוניברסיטת תל אביב, חבר לשכת המהנדסים ובעל רישיונות חשמלאי מהנדס וחשמלאי בודק סוג 3.
-              </Typography>
-              <Typography variant="body2" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
-                בעל ניסיון של למעלה מ-30 שנה בתכנון וביצוע עבודות חשמל מורכבות, פיקוח הנדסי, בדיקות, הכנת מכרזים, כתבי כמויות וייעוץ הנדסי למוסדות ממשלתיים ופרטיים.
-              </Typography>
-              <Typography variant="body2" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
-                מופיע במאגר המומחים של בתי המשפט ומשמש כעד מומחה בתיקים משפטיים מורכבים, כולל חקירות נגדיות והופעה על דוכן העדים.
+                בעל רישיון חשמלאי בודק סוג 3, משמש כעד מומחה וכבורר מטעם בתי משפט וחברות ביטוח, מספק חוות דעת הנדסיות כחוקר נזקי חשמל <br /> עקב שריפות, הצפות, נזקי מלחמה ופעולות איבה ורשלנות מקצועית.
               </Typography>
               <br />
-              <Typography variant="h4" sx={{ fontWeight: 700, pt:2 }} >
-                יתרונות החברה:
+              <Typography variant="h4" sx={{ fontWeight: 700, pt: 2 }} >
+                היתרונות שלנו
               </Typography>
               <ul>
-                <li>ניסיון רב-שנים משולב מהתכנון ועד הביצוע</li>
-                <li>ראייה כוללת של צורכי הלקוח</li>
-                <li>שילוב מומחיות טכנית, משפטית וביצועית</li>
-                {/* <li>חוות דעת מומחה</li>
-                <li>בוררות הנדסית</li>
-                <li>בדיקות מתקני חשמל</li>
-                <li>תכנון חשמל לבתי יוקרה עם מערכות בית חכם</li>
-                <li>תכנון חשמל לתעשייה, מסחר וציבור
-
-</li> */}
+                <li>
+                  <span style={styles.bulletPointHeader}>פתרון מקיף:</span>
+                  <span>ייעוץ, תכנון וביצוע בפיקוח קפדני</span>
+                </li>
+                <li>
+                  <span style={styles.bulletPointHeader}>מומחיות משפטית: </span>
+                  <span>חוות דעת מוכרת בבתי משפט ובחברות ביטוח</span>
+                </li>
+                <li>
+                  <span style={styles.bulletPointHeader}>תגובה מהירה: </span>
+                  <span>יחס אישי, זמינות וגמישות לוחות זמנים</span>
+                </li>
+                <li>
+                  <span style={styles.bulletPointHeader}>אירועים ייחודיים: </span>
+                  <span>בדירות חשמל בטקס הדלקת המשואות בהר הרצל (6 שנים ברצף)</span>
+                </li>
+                <li>
+                  <span style={styles.bulletPointHeader}>"תפירת" פרוייקטים ייחודיים לפי מידה: </span>
+                  <span>גמישות, מעורבות אישית והתאמה לצרכי הלקוח</span>
+                </li>
               </ul>
-              <Box  id="services" >
-<Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636', pt:3 }}>שירותים:</Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 2 }}>
-                {services.map((service) => (
-                  <Grid className={'serviceGridItem'} size={{ xs: 12,sm: 6, lg: 4 }} key={service.title}>
-                    <Paper elevation={0} sx={{
-                      p: 3,
-                      borderRadius: 3,
-                      background: 'white',
-                      color: '#1a2636',
-                      minHeight: 140,
+              <Box id="services" >
+                <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636', pt: 3, textAlign: 'center' }}>שירותים עיקריים:</Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 2 }}>
+                  {services.map((service) => (
+                    <ServiceCard key={service.category} service={service} />
+                  ))}
+                </Box>
+              </Box>
+
+            </Grid>
+            {/* Services Grid */}
+                  <Typography variant="h4" sx={{ fontWeight: 700, mb: 0, color: '#1a2636' }}>פרויקטים נבחרים:</Typography>
+                  <Box
+                    sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    gap: 3,
+                    alignItems: 'flex-start',
+                    mt: 2,
+                    alignContent: 'center',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '320px',
+                    }}
+                  >
+                    <Grid
+                    container
+                    spacing={2}
+                    sx={{
+                      flex: 1,
+                      minWidth: 0,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      alignContent: 'center',
+                      height: '100%',
+                    }}
+                    >
+                    {industries.map((ind) => (
+                      <IndustryCard key={ind.label} selected={selectedIndustry === ind} industry={ind} onClick={() => setSelectedIndustry(ind)} />
+                    ))}
+                    </Grid>
+                    <Box
+                    sx={{
+                      flex: 1,
+                      minWidth: 0,
+                      mt: { xs: 2, md: 0 },
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      textAlign: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)',
-                    }}>
-                      {service.icon}
-                      <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 700 }}>{service.title}</Typography>
-                    </Paper>
+                      minHeight: 320,
+                      position: 'relative',
+                      width: '100%',
+                      height: '100%',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                    }}
+                    style={styles.selectedItemDiv}
+                    >
+                    <AnimatedIndustryContent key={selectedIndustry.label} industry={selectedIndustry} selectedIndustry={selectedIndustry} />
+                    </Box>
+                  </Box>
                   </Grid>
-                ))}
-
-              </Box>
-              </Box>
-              
-            </Grid>
-            {/* Services Grid */}
-            <Typography variant="h4" sx={{ fontWeight: 700, mb: 0, color: '#1a2636' }}>תעשיות:</Typography>
-            <Grid container spacing={2} sx={{ flexDirection: 'row', width: '100%', mt: 2, justifyContent: 'center' }}>
-              {industries.map((ind) => (
-                <Grid size={{ xs: 6, md: 4 }} key={ind.label} sx={{
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  borderRadius: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  p: 2,
-                  color: '#1a2636',
-                  borderColor: '#b0bec5',
-                  background: '#f3f6fa',
-                  justifyContent: 'center',
-                  '&:hover': { background: '#e0e7ef', borderColor: '#19747e' }
-                }}>
-                  {ind.icon && ind.icon}
-                  {ind.label}
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Testimonials */}
-      <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
-        <Container maxWidth="md">
+                </Container>
+                </Box>
+      {/* <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
+        <Container maxWidth="xxl">
           <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>לקוחות ממליצים</Typography>
           <Typography>תוכן בקרוב...</Typography>
+          <TestimonailCarousel />
         </Container>
-      </Box>
+      </Box> */}
 
       {/* Image Carousel */}
       <Box id="gallery" sx={{ py: 5, background: '#eaf1f6', color: '#1a2636' }}>
@@ -192,7 +224,7 @@ function Home() {
         py: { xs: 6, md: 8 },
         textAlign: 'center',
         boxShadow: 3,
-        
+
       }}>
         <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
           Ready to Optimize Your Electrical Systems?
@@ -230,3 +262,234 @@ function Home() {
 }
 
 export default Home;
+
+const styles = {
+  bulletPointHeader: {
+    fontWeight: 'bold',
+  },
+  projectDiv: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  gridContainer: {
+    flexDirection: 'row',
+    mt: 2,
+    justifyContent: 'center',
+  },
+
+}
+
+function ServiceCard(props) {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <Grid
+      className={'serviceGridItem'}
+      size={{ xs: 12, sm: 6 }}
+      key={props.service.category}
+      sx={{ perspective: 1200, minHeight: 300 }}
+    >
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          minHeight: 220,
+          cursor: 'pointer',
+        }}
+        onClick={() => setFlipped((f) => !f)}
+      >
+        <Box
+          sx={{
+            transition: 'transform 0.6s',
+            transformStyle: 'preserve-3d',
+            position: 'relative',
+            width: '100%',
+            height: '100%',
+            minHeight: 220,
+            transform: flipped ? 'rotateY(180deg)' : 'none',
+          }}
+        >
+          {/* Front */}
+          <Box
+            sx={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              backfaceVisibility: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Paper
+              elevation={0}
+              sx={{
+                py: 3,
+                borderRadius: 3,
+                background: 'white',
+                color: '#1a2636',
+                minHeight: 252,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)',
+                width: '100%',
+              }}
+            >
+              {props.service.icon}
+              <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 700 }}>
+                {props.service.category}
+              </Typography>
+              <Typography variant="body2" sx={{ mt: 1, color: '#19747e', fontSize: '0.95rem' }}>
+                לחץ לפרטים
+              </Typography>
+            </Paper>
+          </Box>
+          {/* Back */}
+          <Box
+            sx={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              backfaceVisibility: 'hidden',
+              transform: 'rotateY(180deg)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Paper
+              elevation={0}
+              sx={{
+                py: 3,
+                borderRadius: 3,
+                background: 'white',
+                color: '#1a2636',
+                minHeight: 252,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)',
+                width: '100%',
+              }}
+            >
+              <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+                {props.service.category}
+              </Typography>
+              <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
+                {props.service.items.map((item, index) => (
+                  <li key={index} style={{ margin: '8px 0', color: '#2d3a4a', textAlign: 'right' }}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Typography variant="body2" sx={{ mt: 2, color: '#19747e', fontSize: '0.95rem' }}>
+                לחץ לחזרה
+              </Typography>
+            </Paper>
+          </Box>
+        </Box>
+      </Box>
+    </Grid>
+  );
+}
+
+const IndustryCard = (props) => {
+  const { industry, onClick, selected } = props;
+
+  const handleClick = () => {
+    onClick(industry);
+  };
+
+  return (
+    <Grid
+      size={{ xs: 6, md: 4 }}
+      key={industry.label}
+      onClick={handleClick}
+      sx={{
+        fontWeight: 600,
+        fontSize: '1.1rem',
+        borderRadius: 2,
+        display: 'flex',
+        alignItems: 'center',
+        p: 2,
+        color: '#1a2636',
+        borderColor: '#b0bec5',
+        background: selected ? '#e0e7ef' : '#f3f6fa',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        height: '160px',
+        boxShadow: selected ? '0 4px 12px rgba(0, 0, 0, 0.1)' : '0 2px 6px rgba(0, 0, 0, 0.16)',
+        '&:hover': { background: '#e0e7ef', borderColor: '#19747e' }
+      }}
+    >
+      {industry.icon && industry.icon}
+      {industry.label}
+    </Grid>
+  );
+}
+
+function AnimatedIndustryContent({ selectedIndustry }) {
+  // Use a key on the Fade to trigger both fade out and fade in
+  return (
+    <Fade in={!!selectedIndustry} timeout={{ enter: 800 }} key={selectedIndustry ? selectedIndustry.label : 'none'} appear unmountOnExit>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+        {selectedIndustry ? (
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              width: '100%',
+              height: '100%',
+              minHeight: 320,
+              justifyContent: 'center',
+              background: 'linear-gradient(120deg, #21cbf3 60%, #19747e 100%)',
+              py: 2,
+              borderRadius: 4,
+              px: 2,
+            }}
+          >
+            <Box
+              sx={{
+                width: '80%',
+                height: 200,
+                borderRadius: 4,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                mb: 2,
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.23)',
+                backgroundImage: `url(${selectedIndustry.imgUrl})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+              }}
+            >
+              {/* Placeholder for image or icon */}
+            </Box>
+            <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: '#1a2636', width: '100%', textAlign: 'center' }}>
+              {selectedIndustry.label}
+            </Typography>
+            <Typography variant="body1" sx={{ color: '#1a2636', fontSize: '1.1rem', mt: 1, width: '100%', textAlign: 'center' }}>
+              {/* Example description, replace with real content as needed */}
+              פרויקט בולט בתחום זה. כאן ניתן להוסיף תיאור קצר של הפרויקט, הישגים, או מידע רלוונטי נוסף.
+            </Typography>
+          </Box>
+        ) : (
+          <Typography variant="body1" sx={{ color: '#1a2636', fontSize: '1.1rem', width: '100%', textAlign: 'center' }}>
+            בחרו פרויקט מהרשימה להצגת פרטים
+          </Typography>
+        )}
+      </div>
+    </Fade>
+  );
+}
