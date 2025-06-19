@@ -1,9 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 
 
 // core version + navigation, pagination modules:
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { useUserContext } from '../UserContext';
+import Dialog from '@mui/material/Dialog';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -63,6 +68,19 @@ const testimonials = [
 
 
 function TestimonailCarousel(props) {
+
+    const {recoArray} = useUserContext();
+    const [open, setOpen] =useState(false);
+    const [selectedReco, setselectedReco] = useState(null);
+
+        const handleOpen = (reco) => {
+        setselectedReco(reco);
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+        setselectedReco(null);
+    };
  
 
 return (
@@ -76,6 +94,7 @@ return (
             boxSizing: 'border-box',
             position: 'relative',
         }}
+        
     >
         <div
             className="testimonial-swiper-wrapper"
@@ -114,7 +133,7 @@ return (
                     },
                 }}
             >
-                {testimonials.map((testimonial) => (
+                {recoArray.map((testimonial) => (
                     <SwiperSlide key={testimonial.id}>
                         <div style={{
                             background: '#fff',
@@ -125,8 +144,10 @@ return (
                             flexDirection: 'column',
                             alignItems: 'center',
                             minHeight: '250px',
-                            position: 'relative'
-                        }}>
+                            position: 'relative'                            
+                        }}
+                        onClick={() => handleOpen(testimonial)}
+                        >
                             <div style={{
                                 width: '64px',
                                 height: '64px',
@@ -145,7 +166,11 @@ return (
                                 fontSize: '1.1rem',
                                 textAlign: 'center',
                                 lineHeight: 1.6
-                            }}>{testimonial.text}</p>
+                            }}>
+                                {testimonial.content && testimonial.content.length > 90
+                                    ? testimonial.content.slice(0, 90) + '...'
+                                    : testimonial.content}
+                            </p>
                             <div style={{
                                 color: '#7b5fa1',
                                 fontWeight: 600,
@@ -170,6 +195,35 @@ return (
                     opacity: 1;
                 }
             `}</style>
+             <Dialog open={open} onClose={handleClose} maxWidth="xxl" fullWidth PaperProps={{ style: {  overflow: 'hidden', background: 'transparent', boxShadow: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' } }}>
+                    <IconButton
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{ position: 'absolute', right: 16, top: 16, color: '#fff', zIndex: 2, backgroundColor: '#000', borderRadius: '50%' }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
+                    {selectedReco && (
+                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2 }}>
+                            <iframe
+                                src={(selectedReco.pdfUrl || selectedReco) + '#toolbar=0'}
+                                title="PDF Viewer"
+                                style={{
+                                    width: '100%',
+                                    maxWidth: '900px',
+                                    height: '90vh',
+                                    minHeight: '320px',
+                                    borderRadius: 16,
+                                    boxShadow: '0 4px 32px rgba(0,0,0,0.25)',
+                                    background: 'transparent',
+                                    border: 'none',
+                                    display: 'block',
+                                    overflow: 'auto',
+                                }}
+                            />
+                        </Box>
+                    )}
+                </Dialog>
         </div>
     </div>
 );

@@ -1,76 +1,52 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Box, Typography, Paper, CircularProgress, Fade } from '@mui/material';
 import { useUserContext } from './UserContext';
 
 function Blog() {
   const [loading, setLoading] = useState(true);
 
-  const { texttext } = useUserContext(); // Example usage of UserContext
+  const { postsArr } = useUserContext();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3200); // Simulate loading (slower)
+    const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading (slower)
     return () => clearTimeout(timer);
   }, []);
 
   // Demo posts (replace with real data later)
-  const posts = [
-    {
-      id: 1,
-      title: 'כותרת פוסט ראשון',
-      excerpt: 'תקציר קצר של הפוסט הראשון. כאן יופיעו כמה שורות שמסבירות על התוכן.',
-      author: 'יונתן',
-      authorPicUrl: '',
-    },
-    {
-      id: 2,
-      title: 'פוסט שני לדוגמה',
-      excerpt: 'פסקה קצרה שמסבירה על הפוסט השני. מידע מעניין וחשוב.',
-      author: 'דנה',
-      authorPicUrl: '',
-    },
-    {
-      id: 3,
-      title: 'פוסט שלישי',
-      excerpt: 'עוד פוסט בבלוג עם תקציר קצר. המשך קריאה יוביל לעמוד הפוסט.',
-      author: 'אבי',
-      authorPicUrl: '',
-    },
-    {
-      id: 4,
-      title: 'כותרת פוסט ראשון',
-      excerpt: 'תקציר קצר של הפוסט הראשון. כאן יופיעו כמה שורות שמסבירות על התוכן.',
-      author: 'יונתן',
-      authorPicUrl: '',
-    },
-  ];
+  useEffect(() => {
+    if (postsArr && postsArr.length > 0) {
+      setLoading(false);
+    }
+  }, [postsArr]);
 
   return (
     <Box sx={styles.blogContainer}>
-      <Typography variant="h3" gutterBottom sx={{ color: '#fff', fontWeight: 700, textAlign: 'center', mb: 4, letterSpacing: 1 }}>
+      <Typography variant="h3" gutterBottom sx={{ color: '#000', fontWeight: 700, textAlign: 'center', mb: 4, letterSpacing: 1 }}>
         בלוג
       </Typography>
       {loading ? (
         <Fade in={loading} unmountOnExit>
           <Box sx={styles.loadingbox}>
             <CircularProgress size={60} thickness={5} sx={{ color: '#00bcd4', mb: 2 }} />
-            <Typography variant="h6" sx={{ color: '#fff', mt: 2 }}>טוען פוסטים...</Typography>
+            <Typography variant="h6" sx={{ color: '#000', mt: 2 }}>טוען פוסטים...</Typography>
           </Box>
         </Fade>
       ) : (
-        <Box sx={{  }}>
+        <Box sx={{}}>
           <Fade in={!loading} timeout={1200}>
             <Box
               sx={{
                 display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(4, 2fr)', xxl: 'repeat(6, 1fr)' },
+                gridTemplateColumns: { xs: '1fr',  md: 'repeat(2, 2fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' },
                 gap: 4,
                 mb: 4,
               }}
             >
-              {posts.map((post) => (
+
+              {Object.entries(postsArr).map(([id, post]) => (
                 <a
-                  key={post.id}
-                  href={`/blog/${post.id}`}
+                  key={id}
+                  href={`/blog/${id}`}
                   style={{ textDecoration: 'none' }}
                 >
                   <Paper
@@ -80,36 +56,40 @@ function Blog() {
                     <Box
                       sx={{
                         width: '100%',
-                        height: 140,
-                        background: 'linear-gradient(120deg, #19747e 60%, #232f3e 100%)',
+                        height: '50%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         position: 'relative',
                         transition: 'background 0.2s cubic-bezier(0.4,0,0.2,1)',
+                        boxShadow: '0 15px 40px rgba(0,0,0,0.10)',
+borderRadius: 4,
+                      }}
+                      style={{
+                        backgroundImage: `url(${post.postUrl})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        minHeight: '40%',
                       }}
                     >
-                      {post.authorPicUrl ? (
-                        <Box
-                          component="img"
-                          src={post.authorPicUrl}
-                          alt={post.author || 'author'}
-                          sx={styles.authorPic}
-                        />
-                      ) : (
-                        <Box sx={styles.authorInitial}>
-                          <Typography variant="subtitle1" color="#19747e" fontWeight={700}>
-                            {post.author ? post.author[0] : '?'}
-                          </Typography>
-                        </Box>
-                      )}
+                  
+                      
                     </Box>
                     <Box sx={styles.contentBox}>
                       <Typography variant="h6" sx={styles.title} gutterBottom>
                         {post.title}
                       </Typography>
-                      <Typography variant="body2" color="#b2ebf2" sx={styles.postExcerpt}>
-                        {post.excerpt}
+                      <Typography variant="body2" sx={styles.postExcerpt}>
+                        { (post.content && post.content[0].content?.slice(0, 80) + '...')}
+                        {console.log("content",post.content)}
+                      </Typography>
+                      {/**Date */}
+                      <Typography variant="caption" sx={{ color: '#555', mt: 1 }}>
+                        {new Date(post.date).toLocaleDateString('he-IL', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
                       </Typography>
                     </Box>
                   </Paper>
@@ -128,16 +108,16 @@ export default Blog;
 const styles = {
   blogContainer: {
     minHeight: '82.2dvh',
-    background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)',
-    padding: '20px',
+    padding: '40px',
+    px: { xs: 2, sm: 4, md: 6, lg: 10 },
     direction: 'rtl',
     fontFamily: 'Roboto, sans-serif'
   },
   title: {
-    color: '#fff',
+    color: '#000',
     fontWeight: 700,
-    textAlign: 'center',
-    marginBottom: '40px',
+    textAlign: 'right',
+    marginBottom: { xs: 2, lg: 3 },
     letterSpacing: '1px'
   },
   authorPic: {
@@ -169,10 +149,13 @@ const styles = {
     padding: '30px',
     marginBottom: '20px',
     flex: 1,
-    p: 3,
+    padding:'0px',
+    px: 2,
+    py:1,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    textAlign: 'right',
   },
   postTitle: {
     fontSize: '1.5rem',
@@ -181,7 +164,7 @@ const styles = {
     color: '#19747e',
   },
   postExcerpt: {
-textAlign:'center',
+    textAlign: 'right',
   },
   loadingbox: {
     display: 'flex',
@@ -192,22 +175,22 @@ textAlign:'center',
   },
   paper: {
     borderRadius: 4,
-                      overflow: 'hidden',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'stretch',
-                      minHeight: 420,
-                      maxWidth: 320,
-                      mx: 'auto',
-                      boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
-                      transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), background-color 0.5s cubic-bezier(0.4,0,0.2,1)',
-                      cursor: 'pointer',
-                      backgroundColor: '#24676e',
-                      '&:hover': {
-                        transform: 'translateY(-8px) scale(1.03)',
-                        boxShadow: '0 8px 32px rgba(25,116,126,0.18)',
-                        backgroundColor: '#19747e',
-                      },
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    mx: 'auto',
+    boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
+    transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), background-color 0.5s cubic-bezier(0.4,0,0.2,1)',
+    cursor: 'pointer',
+    backgroundColor: 'transparent',
+    '&:hover': {
+      transform: 'translateY(-8px) scale(1.03)',
+      boxShadow: '0 8px 32px rgba(25,116,126,0.18)',
+      backgroundColor: '#f2f2f2', // Light gray background on hover
+    },
+        aspectRatio: '1 / 0.89',
+        maxWidth: '600px',
   },
+
 
 };

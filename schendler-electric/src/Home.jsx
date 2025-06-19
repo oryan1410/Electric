@@ -57,12 +57,12 @@ const services = [
 ];
 
 const industries = [
-  { label: 'וילות יוקרה', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
-  { label: 'אולפן פודקאסט עירוני ', icon: <BusinessIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
-  { label: 'מתכת כרמל ומפעל מאיר בייגל', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} /> , imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
-  { label: 'ממגורות אשדוד', icon: <FactoryIcon sx={{ fontSize: 28, color: 'primary.main' }} /> , imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
-  { label: 'טקס הדלקת המשואות בהר הרצל', icon: <AccountBalanceIcon sx={{ fontSize: 28, color: 'primary.main' }} /> , imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
-  { label: 'מתקני חשמל תעשייתיים', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
+  { label: 'וילות יוקרה ובית חכם', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
+  { label: 'אולפן פודקאסט', icon: <BusinessIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://podspotters.com/wp-content/uploads/jet-form-builder/0f3fd53cb26beaadd824d6741af36d6e/2025/02/91-1.jpg' },
+  { label: 'מפעל מאיר בייגל', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
+  { label: 'ממגורות אשדוד', icon: <FactoryIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/projectPics%2F50_L.jpg?alt=media&token=b7f3349c-e199-403e-8dce-cf7b66e35f25' },
+  { label: 'טקס הדלקת המשואות', icon: <AccountBalanceIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/projectPics%2F6c8f1c385c7f4c5763d5941fb6b09844.jpg?alt=media&token=81c53cdf-9646-40fd-813f-76310e0074c3' },
+  { label: 'מתקני חשמל תעשייתיים', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
 ];
 
 function Home() {
@@ -99,7 +99,7 @@ function Home() {
       {/* About Us + Services Grid Section */}
       <Box id="about" sx={{ background: 'linear-gradient(180deg, #f7fafc 60%, #eaf1f6 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
         <Container maxWidth="xxl">
-          <Grid className={'aboutGrid'} container spacing={6} alignItems="center">
+          <Grid className={'aboutGrid'} container gap={3} spacing={6} alignItems="center">
             {/* About Us Text */}
             <Grid size={{ xs: 12 }}>
               <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>אודות</Typography>
@@ -137,7 +137,7 @@ function Home() {
                 </li>
               </ul>
               <Box id="services" >
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636', pt: 3, textAlign: 'center' }}>שירותים עיקריים:</Typography>
+                <Typography variant="h4" sx={{ fontWeight: 700,  color: '#1a2636', pt: 3, textAlign: 'center' }}>שירותים עיקריים:</Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 2 }}>
                   {services.map((service) => (
                     <ServiceCard key={service.category} service={service} />
@@ -147,67 +147,66 @@ function Home() {
 
             </Grid>
             {/* Services Grid */}
-                  <Typography variant="h4" sx={{ fontWeight: 700, mb: 0, color: '#1a2636' }}>פרויקטים נבחרים:</Typography>
-                  <Box
-                    sx={{
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    gap: 3,
-                    alignItems: 'flex-start',
-                    mt: 2,
-                    alignContent: 'center',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    minHeight: '320px',
-                    }}
-                  >
-                    <Grid
-                    container
-                    spacing={2}
-                    sx={{
-                      flex: 1,
-                      minWidth: 0,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      alignContent: 'center',
-                      height: '100%',
-                    }}
-                    >
-                    {industries.map((ind) => (
-                      <IndustryCard key={ind.label} selected={selectedIndustry === ind} industry={ind} onClick={() => setSelectedIndustry(ind)} />
-                    ))}
-                    </Grid>
-                    <Box
-                    sx={{
-                      flex: 1,
-                      minWidth: 0,
-                      mt: { xs: 2, md: 0 },
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      minHeight: 320,
-                      position: 'relative',
-                      width: '100%',
-                      height: '100%',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                    }}
-                    style={styles.selectedItemDiv}
-                    >
-                    <AnimatedIndustryContent key={selectedIndustry.label} industry={selectedIndustry} selectedIndustry={selectedIndustry} />
-                    </Box>
-                  </Box>
-                  </Grid>
-                </Container>
-                </Box>
-      {/* <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
+            <Typography variant="h4" sx={{ fontWeight: 700, color: '#1a2636' }}>פרויקטים נבחרים:</Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: 2,
+                alignItems: 'flex-start',
+                
+                alignContent: 'center',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: '320px',
+              }}
+            >
+              <Grid
+                container
+                spacing={2}
+                sx={{
+                  flex: 1,
+                  minWidth: 0,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  height: '100%',
+                }}
+              >
+                {industries.map((ind) => (
+                  <IndustryCard key={ind.label} selected={selectedIndustry === ind} industry={ind} onClick={() => setSelectedIndustry(ind)} />
+                ))}
+              </Grid>
+              <Box
+                sx={{
+                  flex: 1,
+                  minWidth: 0,
+                  mt: { xs: 2, md: 0 },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: 320,
+                  position: 'relative',
+                  width: '100%',
+                  height: '100%',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+                style={styles.selectedItemDiv}
+              >
+                <AnimatedIndustryContent key={selectedIndustry.label} industry={selectedIndustry} selectedIndustry={selectedIndustry} />
+              </Box>
+            </Box>
+          </Grid>
+        </Container>
+      </Box>
+      <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
         <Container maxWidth="xxl">
           <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>לקוחות ממליצים</Typography>
-          <Typography>תוכן בקרוב...</Typography>
           <TestimonailCarousel />
         </Container>
-      </Box> */}
+      </Box>
 
       {/* Image Carousel */}
       <Box id="gallery" sx={{ py: 5, background: '#eaf1f6', color: '#1a2636' }}>
@@ -218,7 +217,7 @@ function Home() {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{
+      {/* <Box sx={{
         background: 'linear-gradient(100deg, #1976d2 0%, #21cbf3 100%)',
         color: 'white',
         py: { xs: 6, md: 8 },
@@ -232,16 +231,19 @@ function Home() {
         <Button variant="contained" color="primary" size="large" sx={{ borderRadius: 2, fontWeight: 600, px: 4, py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, background: '#1a2636', '&:hover': { background: '#19747e' } }}>
           Schedule a Consultation
         </Button>
-      </Box>
+      </Box> */}
 
       {/* Contact Form */}
       <Box id="contact" sx={{ background: 'linear-gradient(180deg, #232f3e 0%, #1a2636 100%)', color: 'white', py: { xs: 6, md: 10 } }}>
-        <Container maxWidth="md">
-          <Grid container spacing={4} textAlign={'center'} alignContent={'center'} justifyContent={'center'} direction="column">
+        <Container maxWidth="xxl">
+          <Grid container textAlign={'center'} alignContent={'center'} justifyContent={'center'} direction="column">
             <Grid size={{ xs: 12, md: 8 }}>
-              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: 'white' }}>Contact Us</Typography>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: 'white' }}>צור קשר</Typography>
             </Grid>
-            <Grid size={{ xs: 12, md: 8 }}>
+            <p>מעוניינים בשירותי ייעוץ, תכנון, בדיקה או חוות דעת? נשמח לעמוד לשירותכם:</p>
+            <p>סלולרי: 050-8689068</p>
+            <p>מייל: <a href="mailto:hanoch2277@gmail.com" style={{ color: '#21cbf3', textDecoration: 'none' }}>hanoch2277@gmail.com</a></p>
+            {/* <Grid size={{ xs: 12, md: 8 }}>
               <Paper elevation={4} sx={{ p: { xs: 3, md: 5 }, borderRadius: 4, background: 'rgba(10,35,66,0.98)', color: 'white', boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)' }}>
                 <Box component="form" noValidate autoComplete="off" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <TextField label="Name" variant="outlined" required fullWidth InputLabelProps={{ style: { color: '#fff' } }} inputProps={{ style: { color: '#fff' } }} sx={{ '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: '#19747e' }, '&:hover fieldset': { borderColor: '#21cbf3' } } }} />
@@ -252,7 +254,7 @@ function Home() {
                   </Button>
                 </Box>
               </Paper>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Container>
       </Box>
@@ -418,14 +420,16 @@ const IndustryCard = (props) => {
         fontSize: '1.1rem',
         borderRadius: 2,
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         p: 2,
+        textAlign: 'center',
         color: '#1a2636',
         borderColor: '#b0bec5',
         background: selected ? '#e0e7ef' : '#f3f6fa',
         justifyContent: 'center',
         cursor: 'pointer',
-        height: '160px',
+        height: '170px',
         boxShadow: selected ? '0 4px 12px rgba(0, 0, 0, 0.1)' : '0 2px 6px rgba(0, 0, 0, 0.16)',
         '&:hover': { background: '#e0e7ef', borderColor: '#19747e' }
       }}
@@ -452,16 +456,16 @@ function AnimatedIndustryContent({ selectedIndustry }) {
               height: '100%',
               minHeight: 320,
               justifyContent: 'center',
-              background: 'linear-gradient(120deg, #21cbf3 60%, #19747e 100%)',
-              py: 2,
               borderRadius: 4,
               px: 2,
             }}
           >
             <Box
               sx={{
-                width: '80%',
-                height: 200,
+                width: '100%',
+                minHeight: 230,
+                maxHeight: 300,
+                height: '100%',
                 borderRadius: 4,
                 display: 'flex',
                 alignItems: 'center',
