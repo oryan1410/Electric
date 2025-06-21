@@ -8,19 +8,6 @@ import Footer from './Components/Footer.jsx';
 import PostPage from './PostPage.jsx'; // Assuming you have a PostPage component
 
 function App() {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [location]);
 
 return (
   <Box

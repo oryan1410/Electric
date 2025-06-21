@@ -146,7 +146,7 @@ function Home() {
               </Box>
 
             </Grid>
-            {/* Services Grid */}
+            {/* Indutries Grid */}
             <Typography variant="h4" sx={{ fontWeight: 700, color: '#1a2636' }}>פרויקטים נבחרים:</Typography>
             <Box
               sx={{
@@ -161,23 +161,7 @@ function Home() {
                 minHeight: '320px',
               }}
             >
-              <Grid
-                container
-                spacing={2}
-                sx={{
-                  flex: 1,
-                  minWidth: 0,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  alignContent: 'center',
-                  height: '100%',
-                }}
-              >
-                {industries.map((ind) => (
-                  <IndustryCard key={ind.label} selected={selectedIndustry === ind} industry={ind} onClick={() => setSelectedIndustry(ind)} />
-                ))}
-              </Grid>
-              <Box
+                            <Box
                 sx={{
                   flex: 1,
                   minWidth: 0,
@@ -197,6 +181,23 @@ function Home() {
               >
                 <AnimatedIndustryContent key={selectedIndustry.label} industry={selectedIndustry} selectedIndustry={selectedIndustry} />
               </Box>
+              <Grid
+                container
+                spacing={2}
+                sx={{
+                  flex: 1,
+                  minWidth: 0,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  height: '100%',
+                }}
+              >
+                {industries.map((ind) => (
+                  <IndustryCard key={ind.label} selected={selectedIndustry === ind} industry={ind} onClick={() => setSelectedIndustry(ind)} />
+                ))}
+              </Grid>
+
             </Box>
           </Grid>
         </Container>
