@@ -74,6 +74,7 @@ function TestimonailCarousel(props) {
     const [selectedReco, setselectedReco] = useState(null);
 
         const handleOpen = (reco) => {
+        
         setselectedReco(reco);
         setOpen(true);
     };
@@ -135,7 +136,7 @@ return (
             >
                 {recoArray.map((testimonial) => (
                     <SwiperSlide key={testimonial.id}>
-                        <div style={{
+                        <a style={{
                             background: '#fff',
                             borderRadius: '16px',
                             padding: '32px 24px 24px 24px',
@@ -146,6 +147,8 @@ return (
                             minHeight: '250px',
                             position: 'relative'                            
                         }}
+                        href={testimonial.pdfUrl || testimonial}
+                        target='_blank'
                         onClick={() => handleOpen(testimonial)}
                         >
                             <div style={{
@@ -180,7 +183,7 @@ return (
                             }}>
                                {testimonial.author}
                             </div>
-                        </div>
+                        </a>
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -195,7 +198,7 @@ return (
                     opacity: 1;
                 }
             `}</style>
-             <Dialog open={open} onClose={handleClose} maxWidth="xxl" fullWidth PaperProps={{ style: {  overflow: 'hidden', background: 'transparent', boxShadow: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' } }}>
+             {/* <Dialog open={open} onClose={handleClose} maxWidth="xxl" fullWidth PaperProps={{ style: {  overflow: 'hidden', background: 'transparent', boxShadow: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' } }}>
                     <IconButton
                         aria-label="close"
                         onClick={handleClose}
@@ -223,7 +226,7 @@ return (
                             />
                         </Box>
                     )}
-                </Dialog>
+                </Dialog> */}
         </div>
     </div>
 );
