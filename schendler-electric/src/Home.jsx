@@ -15,6 +15,8 @@ import ImageCarousel from './Components/ImageCarousel.jsx';
 import TestimonailCarousel from './Components/TestimonailCarousel.jsx';
 import { useUserContext } from './UserContext';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
 const services = [
   {
@@ -23,9 +25,6 @@ const services = [
       'תכנון חשמל לפרויקטים יוקרתיים (וילות חכמות ואולפני הקלטות)',
       'תכנון מערכות בית חכם, אזעקה, גילוי אש ובקרת מבנים',
       'תכנון מתקנים תעשייתיים ומערכות גיבוי גנרטורים',
-      'מומחיות במפעלי מזון',
-      'עריכת מכרזים, הכנת תוכניות מכרז, מפרטים טכניים, אומדנים וטיוטת חוזה',
-      'ניהול ופיקוח עבודות חשמל ומערכות נלוות',
     ],
     icon: <GavelIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
   },
@@ -57,12 +56,12 @@ const services = [
 ];
 
 const industries = [
-  { label: 'וילות יוקרה ובית חכם', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
+  { label: 'וילות יוקרה ובית חכם', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/projectPics%2FWhatsApp%20Image%202025-06-22%20at%203.28.39%20AM.jpeg?alt=media&token=7a5665c4-cc74-4806-9cb2-00454bbf6ed7' },
   { label: 'אולפן פודקאסט', icon: <BusinessIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://podspotters.com/wp-content/uploads/jet-form-builder/0f3fd53cb26beaadd824d6741af36d6e/2025/02/91-1.jpg' },
   { label: 'מפעל מאיר בייגל', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
   { label: 'ממגורות אשדוד', icon: <FactoryIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/projectPics%2F50_L.jpg?alt=media&token=b7f3349c-e199-403e-8dce-cf7b66e35f25' },
   { label: 'טקס הדלקת המשואות', icon: <AccountBalanceIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/projectPics%2F6c8f1c385c7f4c5763d5941fb6b09844.jpg?alt=media&token=81c53cdf-9646-40fd-813f-76310e0074c3' },
-  { label: 'מתקני חשמל תעשייתיים', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2k3J4a5Z6c7f8gX1jY2x5n3s4y6z8m7Ww&s' },
+  { label: 'מתקני חשמל תעשייתיים', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/Pictures%2F20180527_112331.jpg?alt=media&token=14896b59-56cd-4ff7-9f2e-3b602199db89' },
 ];
 
 function Home() {
@@ -87,9 +86,16 @@ function Home() {
                 תכנון מדויק • פיקוח מקצועי • חוות דעת מומחה
               </Typography>
 
-              <Button variant="contained" color="primary" size="large" sx={{ maxWidth: 540, borderRadius: 2, fontWeight: 600, px: 4, mg: '0 auto', py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, background: '#2b8bbd', '&:hover': { background: '#176087' } }}>
+              <Nav.Link
+
+                as={Link}
+                to={`#contact`}
+                style={{ padding: '10px', textAlign: 'center', borderRadius: '10px', color: 'white', fontWeight: 'bold', maxWidth: 540, fontWeight: 600, px: 4, mg: '0 auto', py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, backgroundColor: '#2b8bbd', '&:hover': { background: '#176087' } }}
+                sx={{}}
+                onScroll={() => window.scrollTo({ top: document.getElementById('testimonials').offsetTop, behavior: 'smooth' })}
+              >
                 Book a Consultation
-              </Button>
+              </Nav.Link>
             </Grid>
 
           </Grid>
@@ -102,16 +108,23 @@ function Home() {
           <Grid className={'aboutGrid'} container gap={3} spacing={6} alignItems="center">
             {/* About Us Text */}
             <Grid size={{ xs: 12 }}>
-              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a2636' }}>אודות</Typography>
-              <Typography variant="body1" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
-                חנוך שינדלר, מהנדס חשמל בוגר הטכניון, הבעלים של שינדלר אלקטריק בע"מ, ממשיך מסורת משפחתית בת עשרות שנים. <br />
-                למעלה מ-30 שנות ניסיון בתכנון, ניהול, פיקוח, בדיקות וביצוע של מתקנים תעשייתיים, וילות יוקרה ופרויקטים מורכבים אחרים.
-              </Typography>
-              <Typography variant="body2" sx={{ fontSize: '1.15rem', color: '#2d3a4a' }}>
-                בעל רישיון חשמלאי בודק סוג 3, משמש כעד מומחה וכבורר מטעם בתי משפט וחברות ביטוח, מספק חוות דעת הנדסיות כחוקר נזקי חשמל <br /> עקב שריפות, הצפות, נזקי מלחמה ופעולות איבה ורשלנות מקצועית.
-              </Typography>
-              <br />
-              <Typography variant="h4" sx={{ fontWeight: 700, pt: 2 }} >
+              <Grid container size={{ xs: 12, md: 8 }} spacing={2} sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center', margin: '0 auto', minHeight: 480 }}>
+                <Grid size={{ xs: 12, md: 4 }} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', objectFit: 'cover' }}>
+                  <img src={'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/WhatsApp%20Image%202025-06-22%20at%204.04.02%20AM.jpeg?alt=media&token=5bd5ef31-60e0-418a-af99-84d2932cb8e1'} aria-label='Nahum Schindler Picture' alt="Nahum Schindler Picture" style={styles.aboutPic} />
+                </Grid>
+                <Grid size={{ xs: 12, md: 8 }} sx={{ background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', fontWeight: 700, color: '#fff', minHeight: 480, padding: 3, borderRadius: 2, boxShadow: '0 4px 32px rgba(0,0,0,0.25)' }}>
+                  <Typography variant="body1" sx={{ fontSize: '1.3rem' }}>
+                    חנוך שינדלר, מהנדס חשמל בוגר הטכניון, הבעלים של שינדלר אלקטריק בע"מ, ממשיך מסורת משפחתית בת עשרות שנים. <br /> <br />
+                    למעלה מ-30 שנות ניסיון בתכנון, ניהול, פיקוח, בדיקות וביצוע של מתקנים תעשייתיים, וילות יוקרה ופרויקטים מורכבים אחרים.
+                  </Typography>
+                  <br />
+                  <Typography variant="body2" sx={{ fontSize: '1.3rem' }}>
+                    בעל רישיון חשמלאי בודק סוג 3, משמש כעד מומחה וכבורר מטעם בתי משפט וחברות ביטוח, מספק חוות דעת הנדסיות כחוקר נזקי חשמל <br /> עקב שריפות, הצפות, נזקי מלחמה ופעולות איבה ורשלנות מקצועית.
+                  </Typography>
+                  <br />
+                </Grid>
+              </Grid>
+              <Typography variant="h4" sx={{ fontWeight: 700, pt: 2, mt: 3 }} >
                 היתרונות שלנו
               </Typography>
               <ul>
@@ -136,32 +149,35 @@ function Home() {
                   <span>גמישות, מעורבות אישית והתאמה לצרכי הלקוח</span>
                 </li>
               </ul>
+            </Grid>
+
+            {/*Services Grid */}
+            <Grid size={{ xs: 12 }}>
               <Box id="services" >
-                <Typography variant="h4" sx={{ fontWeight: 700,  color: '#1a2636', pt: 3, textAlign: 'center' }}>שירותים עיקריים:</Typography>
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 2 }}>
+                <Typography variant="h4" sx={{ fontWeight: 700, color: '#1a2636', pt: 3, textAlign: 'center' }}>שירותים עיקריים:</Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 3.5 }}>
                   {services.map((service) => (
                     <ServiceCard key={service.category} service={service} />
                   ))}
                 </Box>
               </Box>
-
             </Grid>
+
             {/* Indutries Grid */}
-            <Typography variant="h4" sx={{ fontWeight: 700, color: '#1a2636' }}>פרויקטים נבחרים:</Typography>
+            <Typography variant="h4" sx={{ fontWeight: 700, color: '#1a2636', mt: 3 }}>פרויקטים נבחרים:</Typography>
             <Box
               sx={{
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row' },
                 gap: 2,
                 alignItems: 'flex-start',
-                
                 alignContent: 'center',
                 justifyContent: 'center',
                 alignItems: 'center',
                 minHeight: '320px',
               }}
             >
-                            <Box
+              <Box
                 sx={{
                   flex: 1,
                   minWidth: 0,
@@ -202,9 +218,10 @@ function Home() {
           </Grid>
         </Container>
       </Box>
+
       <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
         <Container maxWidth="xxl">
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>לקוחות ממליצים</Typography>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>לקוחות ממליצים</Typography>
           <TestimonailCarousel />
         </Container>
       </Box>
@@ -238,12 +255,20 @@ function Home() {
       <Box id="contact" sx={{ background: 'linear-gradient(180deg, #232f3e 0%, #1a2636 100%)', color: 'white', py: { xs: 6, md: 10 } }}>
         <Container maxWidth="xxl">
           <Grid container textAlign={'center'} alignContent={'center'} justifyContent={'center'} direction="column">
-            <Grid size={{ xs: 12, md: 8 }}>
+            <Grid size={{ xs: 12}}>
               <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: 'white' }}>צור קשר</Typography>
             </Grid>
             <p>מעוניינים בשירותי ייעוץ, תכנון, בדיקה או חוות דעת? נשמח לעמוד לשירותכם:</p>
-            <p>סלולרי: 050-8689068</p>
-            <p>מייל: <a href="mailto:hanoch2277@gmail.com" style={{ color: '#21cbf3', textDecoration: 'none' }}>hanoch2277@gmail.com</a></p>
+            <p>טלפון: &nbsp;
+            <a href="tel:0508689068" style={{ color: '#21cbf3', textDecoration: 'none', fontWeight: 600 }}>
+              050-8689068 
+            </a>
+            </p>
+            <p>מייל:&nbsp;
+              <a href="mailto:hanoch2277@gmail.com" style={{ color: '#21cbf3', textDecoration: 'none' }}>
+                hanoch2277@gmail.com
+              </a>
+            </p>
             {/* <Grid size={{ xs: 12, md: 8 }}>
               <Paper elevation={4} sx={{ p: { xs: 3, md: 5 }, borderRadius: 4, background: 'rgba(10,35,66,0.98)', color: 'white', boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)' }}>
                 <Box component="form" noValidate autoComplete="off" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -279,6 +304,14 @@ const styles = {
     mt: 2,
     justifyContent: 'center',
   },
+  aboutPic: {
+    width: '100%',
+    borderRadius: 16,
+    boxShadow: '0 4px 32px rgba(0,0,0,0.25)',
+    objectFit: 'cover',
+    maxHeight: 480,
+    height: '480px',
+  },
 
 }
 
@@ -290,7 +323,7 @@ function ServiceCard(props) {
       className={'serviceGridItem'}
       size={{ xs: 12, sm: 6 }}
       key={props.service.category}
-      sx={{ perspective: 1200, minHeight: 300 }}
+      sx={{ perspective: 1200, minHeight: 270 }}
     >
       <Box
         sx={{
@@ -329,11 +362,11 @@ function ServiceCard(props) {
             <Paper
               elevation={0}
               sx={{
-                py: 3,
+                py: 0,
                 borderRadius: 3,
                 background: 'white',
                 color: '#1a2636',
-                minHeight: 252,
+                minHeight: 270,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -369,11 +402,11 @@ function ServiceCard(props) {
             <Paper
               elevation={0}
               sx={{
-                py: 3,
+                py: 0,
                 borderRadius: 3,
                 background: 'white',
                 color: '#1a2636',
-                minHeight: 252,
+                minHeight: 270,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -386,9 +419,9 @@ function ServiceCard(props) {
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
                 {props.service.category}
               </Typography>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
+              <ul style={{ px: 1, margin: 0, listStyle: 'none', textAlign: 'center' }}>
                 {props.service.items.map((item, index) => (
-                  <li key={index} style={{ margin: '8px 0', color: '#2d3a4a', textAlign: 'right' }}>
+                  <li key={index} style={{ margin: '8px 0', color: '#2d3a4a' }}>
                     {item}
                   </li>
                 ))}

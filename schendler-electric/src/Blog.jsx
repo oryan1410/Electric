@@ -180,13 +180,13 @@ const styles = {
     flexDirection: 'column',
     mx: 'auto',
     boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
-    transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), background-color 0.5s cubic-bezier(0.4,0,0.2,1)',
+    transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), background-color 0.5s cubic-bezier(0.4,0,0.2,1), border 0.5s cubic-bezier(0.4,0,0.2,1)',
     cursor: 'pointer',
     backgroundColor: 'transparent',
     '&:hover': {
       transform: 'translateY(-8px) scale(1.03)',
       boxShadow: '0 8px 32px rgba(25,116,126,0.18)',
-      backgroundColor: '#f2f2f2', // Light gray background on hover
+      backgroundColor: '#f5ff2', // Light gray background on hover
     },
         aspectRatio: '1 / 0.89',
         maxWidth: '600px',

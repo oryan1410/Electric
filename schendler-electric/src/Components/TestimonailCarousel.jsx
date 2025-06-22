@@ -91,7 +91,7 @@ return (
             justifyContent: 'center',
             alignItems: 'center',
             minHeight: '350px',
-            padding: '24px',
+            
             boxSizing: 'border-box',
             position: 'relative',
         }}
@@ -99,14 +99,14 @@ return (
     >
         <div
             className="testimonial-swiper-wrapper"
-            style={{ width: '100%', position: 'relative' }}
+            style={{ width: '100%', position: 'relative', height: '100%'  }}
         >
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={10}
                 slidesPerView={1}
                 loop={true}
-                style={{ width: '100%' }}
+                style={{ width: '100%', height: '100%' }}
                 navigation={true}
                 pagination={{
                     clickable: true,
@@ -139,15 +139,18 @@ return (
                         <a style={{
                             background: '#fff',
                             borderRadius: '16px',
-                            padding: '32px 24px 24px 24px',
+                            padding: '24px 24px 24px 24px',
                             boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                             minHeight: '250px',
-                            position: 'relative'                            
+                            position: 'relative',
+                            textDecoration: 'none',                          
                         }}
                         href={testimonial.pdfUrl || testimonial}
+                        aria-label={`Click to view testimonial from ${testimonial.author}`}
+                        alt={`Click to view testimonial from ${testimonial.author}`}
                         target='_blank'
                         onClick={() => handleOpen(testimonial)}
                         >
@@ -171,7 +174,7 @@ return (
                                 lineHeight: 1.6
                             }}>
                                 {testimonial.content && testimonial.content.length > 90
-                                    ? testimonial.content.slice(0, 90) + '...'
+                                    ? testimonial.content.slice(0, 83) + '...'
                                     : testimonial.content}
                             </p>
                             <div style={{

@@ -16,57 +16,6 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
 
-const testimonials = [
-    {
-        id: 1,
-        text: "This is the best service I've ever used! Highly recommend to everyone.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-    {
-        id: 2,
-        text: "Amazing experience! The team was professional and the results were outstanding.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-    {
-        id: 3,
-        text: "I was impressed by the quality and speed of the service. Will definitely use again.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-    {
-        id: 4,
-        text: "Exceptional service! They went above and beyond to meet my needs.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-    {
-        id: 5,
-        text: "Great value for money. The team was knowledgeable and very helpful.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-    {
-        id: 6,
-        text: "I can't believe how easy they made the process. Highly satisfied with the results.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-    {
-        id: 7,
-        text: "Top-notch service! They exceeded my expectations in every way.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-    {
-        id: 8,
-        text: "Fantastic experience! The team was friendly and the service was quick and efficient.",
-        author: "יוגב להב",
-        authorPicUrl: "https://static.wixstatic.com/media/3161de_c9120ca62eac492b8ef88d8142d80918~mv2.png/v1/fill/w_198,h_77,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png", // Example image URL
-    },
-]
-
 
 
 
@@ -99,7 +48,7 @@ function ImageCarousel(props) {
                 justifyContent: 'center',
                 alignItems: 'center',
                 minHeight: '350px',
-                padding: '24px',
+                padding: '15px',
                 boxSizing: 'border-box',
                 position: 'relative',
             }}

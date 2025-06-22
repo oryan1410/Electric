@@ -16,6 +16,9 @@ const pages = [
 
 function ResponsiveAppBar() {
 
+  const screenWidth = window.innerWidth;
+  const isMobile = screenWidth <= 768; // Adjust this value as needed for mobile
+
     const location = useLocation();
     const [expanded, setExpanded] = useState(false);
 
@@ -24,9 +27,16 @@ function ResponsiveAppBar() {
       const id = location.hash.replace('#', '');
       const el = document.getElementById(id);
       if (el) {
+        if (isMobile) {
         const yOffset = -260; // Adjust this value to match your AppBar height
         const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+        else {
+          const yOffset = -50; // Adjust this value to match your AppBar height
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
       }
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
