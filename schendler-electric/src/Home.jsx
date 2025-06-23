@@ -56,7 +56,7 @@ const services = [
 ];
 
 const industries = [
-  { label: 'וילות יוקרה ובית חכם', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/projectPics%2FWhatsApp%20Image%202025-06-22%20at%203.28.39%20AM.jpeg?alt=media&token=7a5665c4-cc74-4806-9cb2-00454bbf6ed7' },
+  { label: 'וילות ובית חכם', icon: <HomeIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/Pictures%2FWhatsApp%20Image%202025-06-22%20at%204.32.18%20AM.jpeg?alt=media&token=44bf5fa6-8fc8-429f-beb9-91e40ff7323d' },
   { label: 'אולפן פודקאסט', icon: <BusinessIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://podspotters.com/wp-content/uploads/jet-form-builder/0f3fd53cb26beaadd824d6741af36d6e/2025/02/91-1.jpg' },
   { label: 'מפעל מאיר בייגל', icon: <DeviceHubIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSLFID2rw2YJoZdUgTqIPYA1sIMti8Pl9Xw&s' },
   { label: 'ממגורות אשדוד', icon: <FactoryIcon sx={{ fontSize: 28, color: 'primary.main' }} />, imgUrl: 'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/projectPics%2F50_L.jpg?alt=media&token=b7f3349c-e199-403e-8dce-cf7b66e35f25' },
@@ -72,7 +72,7 @@ function Home() {
   return (
     <Box id={'electricApp'} sx={{ direction: 'rtl', fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', minHeight: '100vh', color: 'white' }}>
       {/* Hero Section */}
-      <Box id="top" sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 13, md: 13 }, px: { xs: 4, md: 2 } }}>
+      <Box id="top" sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 13, md: 12 }, px: { xs: 4, md: 2 } }}>
         <Container maxWidth="xxl">
           <Grid className={'aboutGrid'} container spacing={6} alignItems="center">
             <Grid sx={{ flexDirection: 'column', display: 'flex' }} size={{ xs: 12 }}>
@@ -108,7 +108,7 @@ function Home() {
           <Grid className={'aboutGrid'} container gap={3} spacing={6} alignItems="center">
             {/* About Us Text */}
             <Grid size={{ xs: 12 }}>
-              <Grid container size={{ xs: 12, md: 8 }} spacing={2} sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center', margin: '0 auto', minHeight: 480 }}>
+              <Grid container size={{ xs: 12, md: 10 }} spacing={2} sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center', margin: '0 auto', minHeight: 480 }}>
                 <Grid size={{ xs: 12, md: 4 }} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', objectFit: 'cover' }}>
                   <img src={'https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/WhatsApp%20Image%202025-06-22%20at%204.04.02%20AM.jpeg?alt=media&token=5bd5ef31-60e0-418a-af99-84d2932cb8e1'} aria-label='Nahum Schindler Picture' alt="Nahum Schindler Picture" style={styles.aboutPic} />
                 </Grid>
@@ -121,30 +121,29 @@ function Home() {
                   <Typography variant="body2" sx={{ fontSize: '1.3rem' }}>
                     בעל רישיון חשמלאי בודק סוג 3, משמש כעד מומחה וכבורר מטעם בתי משפט וחברות ביטוח, מספק חוות דעת הנדסיות כחוקר נזקי חשמל <br /> עקב שריפות, הצפות, נזקי מלחמה ופעולות איבה ורשלנות מקצועית.
                   </Typography>
-                  <br />
                 </Grid>
               </Grid>
               <Typography variant="h4" sx={{ fontWeight: 700, pt: 2, mt: 3 }} >
                 היתרונות שלנו
               </Typography>
               <ul>
-                <li>
+                <li style={styles.projectDiv}>
                   <span style={styles.bulletPointHeader}>פתרון מקיף:</span>
                   <span>ייעוץ, תכנון וביצוע בפיקוח קפדני</span>
                 </li>
-                <li>
+                <li style={styles.projectDiv}>
                   <span style={styles.bulletPointHeader}>מומחיות משפטית: </span>
                   <span>חוות דעת מוכרת בבתי משפט ובחברות ביטוח</span>
                 </li>
-                <li>
+                <li style={styles.projectDiv}>
                   <span style={styles.bulletPointHeader}>תגובה מהירה: </span>
                   <span>יחס אישי, זמינות וגמישות לוחות זמנים</span>
                 </li>
-                <li>
+                <li style={styles.projectDiv}>
                   <span style={styles.bulletPointHeader}>אירועים ייחודיים: </span>
                   <span>בדירות חשמל בטקס הדלקת המשואות בהר הרצל (6 שנים ברצף)</span>
                 </li>
-                <li>
+                <li style={styles.projectDiv}>
                   <span style={styles.bulletPointHeader}>"תפירת" פרוייקטים ייחודיים לפי מידה: </span>
                   <span>גמישות, מעורבות אישית והתאמה לצרכי הלקוח</span>
                 </li>
@@ -155,7 +154,7 @@ function Home() {
             <Grid size={{ xs: 12 }}>
               <Box id="services" >
                 <Typography variant="h4" sx={{ fontWeight: 700, color: '#1a2636', pt: 3, textAlign: 'center' }}>שירותים עיקריים:</Typography>
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', mt: 3.5 }}>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4,rowGap:2, justifyContent: 'center', mt: 3.5 }}>
                   {services.map((service) => (
                     <ServiceCard key={service.category} service={service} />
                   ))}
@@ -175,6 +174,7 @@ function Home() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 minHeight: '320px',
+                width: '100%',
               }}
             >
               <Box
@@ -220,9 +220,9 @@ function Home() {
       </Box>
 
       { /* Testimonials Section */}
-      <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
+      <Box id="testimonials" sx={{ py: 5,px:2, background: '#f3f6fa', color: '#1a2636' }}>
         <Container maxWidth="xxl">
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>לקוחות ממליצים</Typography>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, textAlign:'center' }}>לקוחות ממליצים</Typography>
           <TestimonailCarousel />
         </Container>
       </Box>
@@ -230,7 +230,7 @@ function Home() {
       {/* Image Carousel */}
       <Box id="gallery" sx={{ py: 5, background: '#eaf1f6', color: '#1a2636' }}>
         <Container maxWidth="xxl">
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>גלריית תמונות</Typography>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, px:2 }}>גלריית תמונות</Typography>
           <ImageCarousel />
         </Container>
       </Box>
@@ -307,11 +307,15 @@ const styles = {
   },
   aboutPic: {
     width: '100%',
-    borderRadius: 16,
+    borderRadius: 9,
     boxShadow: '0 4px 32px rgba(0,0,0,0.25)',
     objectFit: 'cover',
+    backgroundPosition: 'center',
     maxHeight: 480,
     height: '480px',
+  },
+  projectDiv: {
+    fontSize: '1.1rem',
   },
 
 }
@@ -324,7 +328,7 @@ function ServiceCard(props) {
       className={'serviceGridItem'}
       size={{ xs: 12, sm: 6 }}
       key={props.service.category}
-      sx={{ perspective: 1200, minHeight: 270 }}
+      sx={{ minHeight: 270 }}
     >
       <Box
         sx={{
@@ -417,7 +421,7 @@ function ServiceCard(props) {
                 width: '100%',
               }}
             >
-              <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+              <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1,    fontSize: '1.1rem'}}>
                 {props.service.category}
               </Typography>
               <ul style={{ px: 1, margin: 0, listStyle: 'none', textAlign: 'center' }}>
@@ -480,7 +484,7 @@ function AnimatedIndustryContent({ selectedIndustry }) {
   return (
     <Fade in={!!selectedIndustry} timeout={{ enter: 800 }} key={selectedIndustry ? selectedIndustry.label : 'none'} appear unmountOnExit>
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-        {selectedIndustry ? (
+          {/* Main content for the selected industry */}
           <Box
             sx={{
               display: 'flex',
@@ -492,13 +496,13 @@ function AnimatedIndustryContent({ selectedIndustry }) {
               minHeight: 320,
               justifyContent: 'center',
               borderRadius: 4,
-              px: 2,
+              px: 1,
             }}
           >
             <Box
               sx={{
                 width: '100%',
-                minHeight: 230,
+                minHeight: 280,
                 maxHeight: 300,
                 height: '100%',
                 borderRadius: 4,
@@ -518,16 +522,12 @@ function AnimatedIndustryContent({ selectedIndustry }) {
             <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: '#1a2636', width: '100%', textAlign: 'center' }}>
               {selectedIndustry.label}
             </Typography>
-            <Typography variant="body1" sx={{ color: '#1a2636', fontSize: '1.1rem', mt: 1, width: '100%', textAlign: 'center' }}>
+            {/* <Typography variant="body1" sx={{ color: '#1a2636', fontSize: '1.1rem', mt: 1, width: '100%', textAlign: 'center' }}> */}
               {/* Example description, replace with real content as needed */}
-              פרויקט בולט בתחום זה. כאן ניתן להוסיף תיאור קצר של הפרויקט, הישגים, או מידע רלוונטי נוסף.
-            </Typography>
+              {/* פרויקט בולט בתחום זה. כאן ניתן להוסיף תיאור קצר של הפרויקט, הישגים, או מידע רלוונטי נוסף.
+            </Typography> */}
           </Box>
-        ) : (
-          <Typography variant="body1" sx={{ color: '#1a2636', fontSize: '1.1rem', width: '100%', textAlign: 'center' }}>
-            בחרו פרויקט מהרשימה להצגת פרטים
-          </Typography>
-        )}
+        
       </div>
     </Fade>
   );

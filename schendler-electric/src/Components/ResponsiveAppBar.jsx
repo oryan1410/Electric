@@ -36,7 +36,7 @@ function ResponsiveAppBar() {
         window.scrollTo({ top: y, behavior: 'smooth' });
         }
         else {
-          const yOffset = -50; // Adjust this value to match your AppBar height
+          const yOffset = -60; // Adjust this value to match your AppBar height
           const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: 'smooth' });
         }

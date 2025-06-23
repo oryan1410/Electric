@@ -85,7 +85,7 @@ borderRadius: 4,
                       </Typography>
                       {/**Date */}
                       <Typography variant="caption" sx={{ color: '#555', mt: 1 }}>
-                        {new Date(post.date).toLocaleDateString('he-IL', {
+                        {new Date(post.date+ "T12:00:00").toLocaleDateString('he-IL', {
                           year: 'numeric',
                           month: 'long',
                           day: 'numeric',

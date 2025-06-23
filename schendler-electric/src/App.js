@@ -42,7 +42,8 @@ return (
         <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<PostPage />} />
-        <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/landingPage" element={<Home />} />
         {/* Add more routes as needed */}
       </Routes>
     </Box>

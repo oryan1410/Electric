@@ -127,7 +127,7 @@ function ImageCarousel(props) {
                         opacity: 1;
                     }
                 `}</style>
-                <Dialog open={open} onClose={handleClose} maxWidth="xxl" fullWidth PaperProps={{ style: {  overflow: 'hidden', background: 'rgba(0, 0, 0, 0)', boxShadow: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' } }}>
+                <Dialog open={open} onClose={handleClose} maxWidth="xxl" fullWidth PaperProps={{ style: {  overflow: 'hidden', background: 'rgba(0, 0, 0, )', boxShadow: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' } }}>
                     <IconButton
                         aria-label="close"
                         onClick={handleClose}

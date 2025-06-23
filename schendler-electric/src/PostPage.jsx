@@ -62,16 +62,26 @@ const PostPage = () => {
             ));
     };
     useEffect(() => {
-        console.log("PostPage mounted with id:", id);
         // Scroll to the top of the page when the component mounts
         if (id) {
-            console.log("post", postsArr[id]);
             setPost(postsArr[id]);
         }
     }, [id]);
 
 
 
+
+    // Helper to format date as DD/MM/YYYY
+    const formatDate = (dateStr) => {
+        const date = new Date(dateStr + "T12:00:00");
+        console.log(date);
+        const day = String(date.getDate()).padStart(2, '0');
+        console.log(day);
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        console.log(`${day}/${month}/${year}`);
+        return `${day}/${month}/${year}`;
+    };
 
     return (
         !post ? (
@@ -81,38 +91,97 @@ const PostPage = () => {
                 <div>Loading...</div>
             )
         ) : (
-            <div className="post-page" style={styles.postPage}>
-                <h1 style={styles.postTitle}>{post.title}</h1>
-                <p style={styles.postAuthor}>
-                    <em>
-                        By {post.author} on {new Date(post.date).toLocaleDateString()}
-                    </em>
-                </p>
-                <div
-                    className="post-content"
-                    style={styles.postContent}
-                >
-                    {post.paragraphs ? (
-                        post.paragraphs.map((para, index) => (
-                            <div key={index} style={{ marginBottom: 28 }}>
-                                {para.header && (
-                                    <h2 style={styles.paraHeader}>{para.header}</h2>
-                                )}
-                                <p style={styles.postContent}>{para.content}</p>
+            <div className="post-page" style={{
+                minHeight: '100vh',
+                background: 'linear-gradient(120deg, #e0f7fa 0%, #fff 100%)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '0',
+            }}>
+                <div style={{
+                    maxWidth: 'none',
+                    background: '#fff',
+                    borderRadius: 18,
+                    boxShadow: '0 8px 32px 0 rgba(0,0,0,0.10)',
+                    padding: '36px 22px 36px 22px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}>
+                    <h1 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#19747e', marginBottom: 10, lineHeight: 1.1 }}>{post.title}</h1>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
+                        <span style={{ color: '#19747e', fontWeight: 600, fontSize: '1.1rem' }}>{post.author}</span>
+                        <span style={{ color: '#b2ebf2', fontSize: 18 }}>|</span>
+                        <span style={{ color: '#888', fontSize: '1.05rem' }}>{formatDate(post.date)}</span>
+                    </div>
+                    <div
+                        className="post-content"
+                        style={{ width: '100%', background: 'rgba(224,247,250,0.18)', borderRadius: 12, py: 28, marginBottom: 24, boxShadow: '0 2px 12px 0 rgba(33,203,243,0.06)' }}
+                    >
+                        {post.paragraphs ? (
+                            post.paragraphs.map((para, index) => (
+                                <div key={index} style={{ marginBottom: 32 }}>
+                                    {para.header && (
+                                        <h2 style={{ fontSize: '1.35rem', color: '#19747e', fontWeight: 700, margin: '0 0 12px 0', letterSpacing: '0.01em', textAlign: 'right', background: 'rgba(33,203,243,0.10)', borderRadius: 6, padding: '6px 12px' }}>{para.header}</h2>
+                                    )}
+                                    <p style={{ color: '#222', fontSize: '1.13rem', margin: 0, padding: 0, background: 'none', textAlign: 'right', lineHeight: 1.85 }}>{para.content}</p>
+                                </div>
+                            ))
+                        ) : (
+                            renderParagraphs(post.content)
+                        )}
+
+                        {/**comment Section */}
+                        {post.comments && post.comments.length > 0 && (
+                            <div style={{ marginTop: 36 }}>
+                                <h3 style={{ color: '#19747e', fontWeight: 700, fontSize: '1.18rem', marginBottom: 18 }}>תגובות</h3>
+                                {post.comments.map((comment, idx) => (
+                                    <div
+                                        key={idx}
+                                        style={{
+                                            background: 'rgba(224,247,250,0.45)',
+                                            borderRadius: 8,
+                                            padding: '14px 18px',
+                                            marginBottom: 16,
+                                            boxShadow: '0 1px 6px 0 rgba(33,203,243,0.08)'
+                                        }}
+                                    >
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+                                            {/* <span style={{ color: '#19747e', fontWeight: 600 }}>{comment.author}</span> */}
+                                            {/* <span style={{ color: '#b2ebf2', fontSize: 16 }}>|</span> */}
+                                            <span style={{ color: '#888', fontSize: '0.98rem' }}>{formatDate(comment.date)}</span>
+                                        </div>
+                                        <div style={{ color: '#222', fontSize: '1.07rem', lineHeight: 1.7, textAlign: 'right' }}>
+                                            {comment.content}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))
-                    ) : (
-                        renderParagraphs(post.content)
-                    )}
-                                    <textarea
-                    placeholder='הוסף תגובה...'
-                    style={styles.textArea}
-                    onChange={(e) => console.log(e.target.value)}
+                        )}
+                        <textarea
+                            placeholder='הוסף תגובה...'
+                            style={{
+                                width: '100%',
+                                boxSizing: 'border-box',
+                                marginTop: '32px',
+                                borderRadius: '10px',
+                                minHeight: '70px',
+                                resize: 'vertical',
+                                color: '#19747e',
+                                fontFamily: 'inherit',
+                                fontSize: '1.08rem',
+                                boxShadow: '0 2px 8px 0 rgba(44,83,100,0.10)',
+                                padding: '18px',
+                                border: '1.5px solid #b2ebf2',
+                                background: 'rgba(224,247,250,0.5)',
+                                outline: 'none',
+                            }}
+                            onChange={(e) => console.log(e.target.value)}
+                        />
 
-                />
+
+                    </div>
                 </div>
-
-
             </div>
         )
     );
@@ -160,7 +229,7 @@ const styles = {
         borderBottom: '1px solid #19747e',
         paddingBottom: 8,
         paddingRight: 12,
-                marginTop: 10,
+        marginTop: 10,
 
     },
     postHeader: {
