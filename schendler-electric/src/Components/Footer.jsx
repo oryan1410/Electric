@@ -43,20 +43,15 @@ const Footer = () => {
         <Typography variant="body2">
           Developed by{" "}
           <Link
-            href="https://www.linkedin.com/in//"
+            href="https://www.linkedin.com/in/oryan-barnea-56b563268/"
             sx={{ color: '#ffffff', textDecoration: 'none' }}
+            target="_blank"
+            alt='Oryan Barnea LinkedIn Profile'
+            aria-label="Oryan Barnea LinkedIn Profile"
           >
             Oryan Barnea
           </Link>
         </Typography>
-      </Box>
-      <Box>
-        <Link
-          href={isBlogPage ? '/home' : '/blog'}
-          sx={{ color: '#ffffff', textDecoration: 'none' }}
-        >
-          {/* Optional: Add text or icon here if needed */}
-        </Link>
       </Box>
     </Box>
   );

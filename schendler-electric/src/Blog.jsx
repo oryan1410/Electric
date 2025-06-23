@@ -7,14 +7,15 @@ function Blog() {
 
   const { postsArr } = useUserContext();
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading (slower)
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {setLoading(false)}, 2000); // Simulate loading (slower)
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  // Demo posts (replace with real data later)
   useEffect(() => {
-    if (postsArr && postsArr.length > 0) {
+    console.log("postsArr", postsArr);
+    if (postsArr && Object.keys(postsArr).length > 0) {
+      console.log("postsArr loaded", postsArr);
       setLoading(false);
     }
   }, [postsArr]);
@@ -81,7 +82,6 @@ borderRadius: 4,
                       </Typography>
                       <Typography variant="body2" sx={styles.postExcerpt}>
                         { (post.content && post.content[0].content?.slice(0, 80) + '...')}
-                        {console.log("content",post.content)}
                       </Typography>
                       {/**Date */}
                       <Typography variant="caption" sx={{ color: '#555', mt: 1 }}>

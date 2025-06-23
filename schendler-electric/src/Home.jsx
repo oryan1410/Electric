@@ -90,11 +90,11 @@ function Home() {
 
                 as={Link}
                 to={`#contact`}
-                style={{ padding: '10px', textAlign: 'center', borderRadius: '10px', color: 'white', fontWeight: 'bold', maxWidth: 540, fontWeight: 600, px: 4, mg: '0 auto', py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, backgroundColor: '#2b8bbd', '&:hover': { background: '#176087' } }}
+                style={{ padding: '10px', textAlign: 'center', borderRadius: '10px', color: 'white', fontWeight: 'bold', maxWidth: 540, fontWeight: 600, px: 4, mg: '0 auto', py: 1.5, fontSize: '1.1rem', boxShadow: 2, letterSpacing: 0.5, backgroundColor: '#0078d7', '&:hover': { background: '#176087' } }}
                 sx={{}}
                 onScroll={() => window.scrollTo({ top: document.getElementById('testimonials').offsetTop, behavior: 'smooth' })}
               >
-                Book a Consultation
+                ליצירת קשר
               </Nav.Link>
             </Grid>
 
@@ -219,6 +219,7 @@ function Home() {
         </Container>
       </Box>
 
+      { /* Testimonials Section */}
       <Box id="testimonials" sx={{ py: 5, background: '#f3f6fa', color: '#1a2636' }}>
         <Container maxWidth="xxl">
           <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>לקוחות ממליצים</Typography>

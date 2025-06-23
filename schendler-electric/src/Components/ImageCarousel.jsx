@@ -136,7 +136,7 @@ function ImageCarousel(props) {
                         <CloseIcon />
                     </IconButton>
                     {selectedImg && (
-                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2 }}>
+                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', p: 2, height: '100vh' }}>
                             <img
                                 src={selectedImg.imgUrl || selectedImg}
                                 alt="gallery zoom"

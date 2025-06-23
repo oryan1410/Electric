@@ -15,7 +15,6 @@ const PostPage = () => {
         // If array: handle array of strings or objects
         if (Array.isArray(content)) {
             return content.map((para, idx) => {
-                console.log("para", para.url);
                 // if (para.type === 'image') {
                 //     return (
                 //         <img
@@ -28,7 +27,7 @@ const PostPage = () => {
                 // }
                 if (para.type === 'text') {
                     return (
-                        <div style={{ marginBottom: 28 }}>
+                        <div key={idx} style={{ marginBottom: 28 }}>
                             <h2 style={styles.paraHeader}>{para.header}</h2>
                             <p style={styles.postContent}>{para.content}</p>
                         </div>

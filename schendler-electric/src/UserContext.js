@@ -19,6 +19,8 @@ export function UserProvider({ children }) {
     const [loading, setLoading] = useState(true)
     const [recoArray, setRecoArray] = useState([])
 
+    const [navbarVisable, setNavbarVisible] = useState(true)
+
     useEffect(() => {
         const tempUrl = query(collection(db, 'CarouselPics'));
         const unsubscribe = onSnapshot(tempUrl, (querySnapshot) => {
@@ -39,6 +41,7 @@ export function UserProvider({ children }) {
         carouselImages,
         postsArr,
         recoArray,
+        navbarVisable, setNavbarVisible
     };
 
     return (

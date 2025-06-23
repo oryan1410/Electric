@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useUserContext } from '../UserContext';
 // ResponsiveAppBar.jsx
 
 const pages = [
@@ -21,6 +22,8 @@ function ResponsiveAppBar() {
 
     const location = useLocation();
     const [expanded, setExpanded] = useState(false);
+
+    const{navbarVisable, setNavbarVisible} = useUserContext();
 
   useEffect(() => {
     if (location.hash) {
@@ -58,7 +61,7 @@ function ResponsiveAppBar() {
   }
 
   return (
-    <Navbar bg="black" variant="dark" expand="md" sticky="top" expanded={isExpanded} onToggle={handleToggle} style={{ padding: '10px 0' }}>
+    <Navbar  bg="black" variant="dark" expand="md" sticky="top" expanded={isExpanded} onToggle={handleToggle} style={{ padding: '10px 0' }}>
       <Container fluid style={{ direction: 'rtl', maxWidth: '100%', margin: '0 auto' }}>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={handleToggle} />
         <Navbar.Brand as={Link} to={isBlogPage ? '/home' : '#'} >

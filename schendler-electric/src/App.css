@@ -68,14 +68,6 @@
   width: 100% !important;
 }
 
-.appBar {
-  background-color: #92B6B1;
-  color: white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
 
 .swiperImg {
   transform: scale(1);
