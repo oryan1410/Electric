@@ -72,7 +72,7 @@ function Home() {
   return (
     <Box id={'electricApp'} sx={{ direction: 'rtl', fontFamily: 'Roboto, sans-serif', background: 'linear-gradient(135deg, #0a2342 0%, #19747e 100%)', minHeight: '100vh', color: 'white' }}>
       {/* Hero Section */}
-      <Box id="top" sx={{ background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 13, md: 12 }, px: { xs: 4, md: 2 } }}>
+      <Box id="top" sx={styles.heroBox}>
         <Container maxWidth="xxl">
           <Grid className={'aboutGrid'} container spacing={6} alignItems="center">
             <Grid sx={{ flexDirection: 'column', display: 'flex' }} size={{ xs: 12 }}>
@@ -103,7 +103,7 @@ function Home() {
       </Box>
 
       {/* About Us + Services Grid Section */}
-      <Box id="about" sx={{ background: 'linear-gradient(180deg, #f7fafc 60%, #eaf1f6 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } }}>
+      <Box id="about" sx={styles.aboutBox}>
         <Container maxWidth="xxl">
           <Grid className={'aboutGrid'} container gap={3} spacing={6} alignItems="center">
             {/* About Us Text */}
@@ -293,6 +293,10 @@ function Home() {
 export default Home;
 
 const styles = {
+  heroBox: {
+     background: 'linear-gradient(120deg, #0a2342 0%, #19747e 100%)', color: 'text.primary', py: { xs: 13, md: 12 }, px: { xs: 4, md: 2 } 
+  },
+  aboutBox:{ background: 'linear-gradient(180deg, #f7fafc 60%, #eaf1f6 100%)', color: 'text.primary', py: { xs: 5, md: 5 }, px: { xs: 4, md: 2 } },
   bulletPointHeader: {
     fontWeight: 'bold',
   },

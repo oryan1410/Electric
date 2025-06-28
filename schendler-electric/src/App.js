@@ -8,11 +8,25 @@ import Footer from './Components/Footer.jsx';
 import PostPage from './PostPage.jsx'; // Assuming you have a PostPage component
 import { useUserContext } from './UserContext.js';
 import LandingPage from './LandingPage.jsx';
+import TagManager from 'react-gtm-module'; // Import GTM module
 
 function App() {
 
   const location = useLocation();
   const { navbarVisable, setNavbarVisible } = useUserContext();
+
+
+
+// Set up Google Tag Manager (GTM)
+  useEffect(() => {
+      const tagManagerArgs = {
+  gtmId: 'GTM-K8CZ8DR8', // Replace this with your actual GTM ID
+};
+    // Initialize GTM only once when the app loads
+    TagManager.initialize(tagManagerArgs);
+  }
+, []);
+
 
   useEffect(() => {
     // Hide the navbar on blog pages
@@ -43,7 +57,7 @@ return (
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<PostPage />} />
         <Route path="/landing" element={<LandingPage />} />
-        <Route path="/landingPage" element={<Home />} />
+        <Route path="/landingPage" element={<LandingPage />} />
         {/* Add more routes as needed */}
       </Routes>
     </Box>
