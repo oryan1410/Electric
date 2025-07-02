@@ -83,7 +83,7 @@
         "title": "הגנה בפני ברקים ונחשולי מתח למה זה חשוב בבית שלך",
         "author": "Admin",
         "date": "2024-06-01",
-                "postUrl": "https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/Pictures%2F20240610_124417.jpg?alt=media&token=3d7ec35e-a184-4b07-a929-7e07dd375141",
+        "postUrl": "https://firebasestorage.googleapis.com/v0/b/electric-5c719.firebasestorage.app/o/Pictures%2F20240610_124417.jpg?alt=media&token=3d7ec35e-a184-4b07-a929-7e07dd375141",
         "content": [
             {
                 "type": "text",
@@ -503,5 +503,4 @@
             }
         ]
     }
-
 }

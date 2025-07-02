@@ -119,7 +119,7 @@ function Home() {
                   </Typography>
                   <br />
                   <Typography variant="body2" sx={{ fontSize: '1.3rem' }}>
-                    בעל רישיון חשמלאי בודק סוג 3, משמש כעד מומחה וכבורר מטעם בתי משפט וחברות ביטוח, מספק חוות דעת הנדסיות כחוקר נזקי חשמל <br /> עקב שריפות, הצפות, נזקי מלחמה ופעולות איבה ורשלנות מקצועית.
+                    בעל רישיון חשמלאי בודק סוג 3, משמש כעד מומחה וכבורר מטעם בתי משפט וחברות ביטוח, מספק חוות דעת הנדסיות כחוקר נזקי חשמל עקב שריפות, הצפות, נזקי מלחמה ופעולות איבה ורשלנות מקצועית.
                   </Typography>
                 </Grid>
               </Grid>
@@ -128,7 +128,7 @@ function Home() {
               </Typography>
               <ul>
                 <li style={styles.projectDiv}>
-                  <span style={styles.bulletPointHeader}>פתרון מקיף:</span>
+                  <span style={styles.bulletPointHeader}>פתרון מקיף: </span>
                   <span>ייעוץ, תכנון וביצוע בפיקוח קפדני</span>
                 </li>
                 <li style={styles.projectDiv}>
@@ -141,7 +141,7 @@ function Home() {
                 </li>
                 <li style={styles.projectDiv}>
                   <span style={styles.bulletPointHeader}>אירועים ייחודיים: </span>
-                  <span>בדירות חשמל בטקס הדלקת המשואות בהר הרצל (6 שנים ברצף)</span>
+                  <span>בדיקות חשמל בטקס הדלקת המשואות בהר הרצל (6 שנים ברציפות)</span>
                 </li>
                 <li style={styles.projectDiv}>
                   <span style={styles.bulletPointHeader}>"תפירת" פרוייקטים ייחודיים לפי מידה: </span>

@@ -107,6 +107,9 @@ const PostPage = () => {
                     padding: '36px 22px 36px 22px',
                     display: 'flex',
                     flexDirection: 'column',
+                                    width: '100%',
+                                    minHeight:'100vh',
+
                 }}>
                     <h1 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#19747e', marginBottom: 10, lineHeight: 1.1 }}>{post.title}</h1>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
@@ -210,7 +213,6 @@ const styles = {
         letterSpacing: '0.01em',
         wordBreak: 'break-word',
         padding: '0 2px',
-        padding: 12,
     },
     postTitle: {
         fontSize: '2.2rem',
@@ -262,7 +264,7 @@ const styles = {
         margin: '0 0 8px 0',
         letterSpacing: '0.01em',
         textTransform: 'uppercase',
-        paddingRight: 12,
+        paddingRight: 5,
         background: 'rgba(66, 95, 102, 0.25)',
         marginBottom: 10
     },
